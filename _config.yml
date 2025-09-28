@@ -1,8 +1,8 @@
-title: Just the Docs Template
-description: A starter template for a Jeykll site using the Just the Docs theme!
+title: Robot Clasificador de Residuos
+description: Documentación del proyecto final de Sistemas Ciberfísicos sobre un robot que recolecta y clasifica materiales reciclables.
 theme: just-the-docs
-
-url: https://just-the-docs.github.io
-
+url: https://github.com/tu-organizacion/Sistemas_Ciberfisicos_Proyecto
 aux_links:
-  Template Repository: https://github.com/just-the-docs/just-the-docs-template
+  Bitácora del proyecto: https://github.com/tu-organizacion/Sistemas_Ciberfisicos_Proyecto
+nav_sort: case_sensitive
+lang: es
