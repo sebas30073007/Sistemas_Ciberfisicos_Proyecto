@@ -7,9 +7,11 @@ nav_order: 3
 
 ## Vistas de la PCB
 
-![Diagrama esquemático de la PCB](/assets/img/PCB_diagrama_esquema.jpg){: .d-block .mx-auto .mb-4 }
-![Distribución de componentes en la PCB](/assets/img/PCB_placa_esquema.jpg){: .d-block .mx-auto .mb-4 }
-![Modelo 3D de la PCB](/assets/img/PCB_placa_esquema_3D.jpg){: .d-block .mx-auto .mb-4 }
+![Diagrama esquemático de la PCB]({{ "/assets/img/PCB_diagrama_esquema.jpg" | relative_url }})
+
+![Distribución de componentes en la PCB]({{ "/assets/img/PCB_placa_esquema.jpg" | relative_url }})
+
+![Modelo 3D de la PCB]({{ "/assets/img/PCB_placa_esquema_3D.jpg" | relative_url }})
 
 ## Descripción general
 Esta placa es el “cerebro embebido” de un módulo de interacción: lee tarjetas RFID, se comunica por Wi-Fi/Bluetooth y ofrece retroalimentación sonora. El núcleo es un **ESP32-WROOM-32**, suficiente para manejar periféricos y lógica de aplicación. Lo acompañan un **módulo RC522** (lector RFID por SPI), un **buzzer** integrado para confirmaciones audibles y un **convertidor UART TTL** que simplifica la programación y diagnóstico desde un puerto serie. Con este conjunto es posible identificar usuarios, registrar eventos y enviar datos a una app o a la nube sin módulos adicionales.
