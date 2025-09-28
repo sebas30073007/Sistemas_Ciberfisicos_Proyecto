@@ -5,7 +5,7 @@ parent: Conexiones
 nav_order: 1
 ---
 
-![Diagrama general del proyecto](/assets/img/Diagrama_de_proyecto.png){: .d-block .mx-auto .mb-4 }
+![Diagrama general del proyecto]({{ "/assets/img/Diagrama_de_proyecto.png" | relative_url }})
 
 ## Visión general
 La arquitectura se compone de tres dominios que se comunican entre sí: el gabinete del robot (infraestructura física), la nube (servicios y procesamiento) y las interfaces de usuario (experiencia del operador y del público). Esta estructura permite separar responsabilidades sin perder trazabilidad entre eventos.
