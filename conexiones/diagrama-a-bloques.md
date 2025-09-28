@@ -5,30 +5,45 @@ parent: Conexiones
 nav_order: 1
 ---
 
+![Diagrama general del proyecto](/assets/img/Diagrama_de_proyecto.png){: .d-block .mx-auto .mb-4 }
 
-(assets/img/Diagrama_de_proyecto.png)
-¿Cómo está armado?
+## Visión general
+La arquitectura se compone de tres dominios que se comunican entre sí: el gabinete del robot (infraestructura física), la nube (servicios y procesamiento) y las interfaces de usuario (experiencia del operador y del público). Esta estructura permite separar responsabilidades sin perder trazabilidad entre eventos.
 
-La arquitectura tiene tres piezas que se hablan entre sí: el gabinete del robot (lo que está físicamente en la cabina), la nube (donde vive el registro, la IA y los dashboards) y las interfaces de usuario (pantalla local y sitio web/móvil).
+## Componentes principales
+### Gabinete del robot
+- **Robótica y sensado:** UR3 con cámara (montada en la muñeca o fija) y gripper para manipulación del residuo.
+- **Sensores auxiliares:** barrera infrarroja, sensores de proximidad, peso e inductivo para detectar presencia de objetos y condiciones seguras.
+- **Control y seguridad:** PLC para interlocks (puertas, paro de emergencia) y PC industrial que coordina la secuencia, muestra la HMI local y se comunica con la nube.
+- **Red local:** todos los elementos se interconectan a través de un switch dedicado que aísla la red de control.
 
-En el gabinete vive la parte mecánica y de seguridad. El UR3 lleva una cámara (en la muñeca o fija dentro de la cabina) y un gripper para tomar el objeto. Alrededor hay sensores sencillos —barrera infrarroja, proximidad, peso e incluso uno inductivo para detectar metal— que avisan si ya metiste algo y si es seguro cerrar la compuerta. Un PLC se encarga de esos interlocks de seguridad (por ejemplo, que el robot no se mueva si la puerta está abierta), y una PC coordina al UR3, muestra la HMI local (instrucciones y resultado) y se comunica con la nube. Todo esto va conectado a un switch; es la red local del sistema.
+### Nube y servicios
+- **APIs en Python:** reciben imágenes y eventos, orquestan la clasificación y exponen datos a otras aplicaciones.
+- **Motor de IA:** puede ejecutarse en la nube o delegarse al edge; procesa las imágenes normalizadas y devuelve la clase del residuo.
+- **Base de datos y almacenamiento:** conserva usuarios, sesiones, vínculos a evidencias fotográficas y métricas de cada ciclo.
+- **Dashboards web/móvil:** muestran KPIs, ranking y tablas de puntos para seguimiento operativo y gamificación.
 
-La nube es el “cerebro administrativo”. Allí hay APIs en Python para recibir imágenes, correr la clasificación (ya sea en la nube o delegada desde el edge), guardar eventos y calcular conteos y puntuaciones. Una base de datos almacena usuarios, sesiones y evidencia (enlace a la foto con su fecha, material y confianza). Encima de eso hay dashboards web/móvil para ver KPIs del proyecto (actividad, exactitud, tiempos) y para mostrar el ranking y la tabla de puntos.
+### Interfaces de usuario
+- **HMI local:** guía al usuario durante el depósito, muestra instrucciones, confirma resultados y reproduce mensajes de audio.
+- **Sitio web / app:** permite revisar el ranking global, el historial personal y las reglas de premiación cuando estén disponibles.
 
-Las interfaces cierran el círculo. La pantalla de la cabina te guía paso a paso: te puedes identificar (RFID/QR), depositas el residuo, ves la foto y el resultado, y escuchas la confirmación. Fuera de la cabina, cualquier persona puede entrar al sitio para ver el ranking general, su propio historial y —cuando esté activo— las reglas de premios.
+## Flujo operativo
+1. El usuario se identifica (RFID/QR) o opera como invitado.
+2. La cabina detecta el residuo, captura la imagen y la normaliza.
+3. La IA clasifica el material y el UR3 deposita el objeto en el contenedor adecuado.
+4. La PC registra un evento completo en la base de datos (usuario, material, confianza, fecha, máquina, evidencia, tiempo de ciclo).
+5. Se actualiza el puntaje y ranking en la HMI y en los dashboards en tiempo real.
 
-¿Qué pasa cuando alguien usa la máquina?
+## Datos críticos
+- Identificadores: usuario (si aplica), máquina y sesión.
+- Trazabilidad: fecha/hora UTC, material clasificado, confianza del modelo y enlace a la imagen.
+- Operación: duración del ciclo y puntos otorgados para análisis de desempeño y gamificación.
 
-Cuando te acercas, puedes identificarte (o jugar anónimo). La cabina detecta el objeto y toma una foto; esa imagen se normaliza y se envía a la IA para decidir la clase. Con el resultado, el UR3 toma el residuo y lo deja en el contenedor correspondiente. En paralelo, la PC registra un evento en la base de datos con todo lo necesario para trazabilidad: quién (si hubo login), qué material, confianza del modelo, cuándo, en qué máquina, enlace a la foto y tiempo de ciclo. Si estabas identificado, el sistema actualiza tu score y tu posición en el ranking; la HMI te lo muestra al instante y el dashboard lo refleja en la web.
+## Confiabilidad y seguridad
+- **Seguridad funcional:** interlocks del PLC, enclavamiento de puerta y paro de emergencia evitan movimientos peligrosos.
+- **Resiliencia:** la PC almacena en buffer eventos/imágenes si la conectividad falla y los reenvía al restablecer la red.
+- **Ciberseguridad:** comunicaciones HTTPS y APIs protegidas con tokens.
+- **Privacidad:** los eventos sin identificación se mantienen anónimos y solo alimentan métricas agregadas.
 
-¿Qué datos son los importantes?
-
-El sistema cuida pocos, pero muy claros: id de usuario (si aplica) y alias, id de la máquina, fecha/hora en UTC, material clasificado, confianza de la IA, link a la imagen, duración del ciclo y puntos otorgados. Con eso puedes auditar cada evento, medir la calidad del modelo y darle sentido al juego (ranking y premios).
-
-¿Qué asegura que funcione bien?
-
-La cabina prioriza la seguridad (interlocks del PLC, paro de emergencia, enclavamiento de puerta) y la confiabilidad (si se cae internet, la PC puede bufferizar eventos e imágenes y reintentarlos después). La comunicación con la nube viaja por HTTPS y las APIs usan tokens para evitar accesos no autorizados. En la parte social, la privacidad es simple: si no te identificas, el evento queda anónimo y solo alimenta métricas globales.
-
-¿Qué valor aporta esta arquitectura?
-
-Hace visible lo invisible del reciclaje: muestra el proceso (robot en acción), refuerza el comportamiento con feedback inmediato (resultado y puntos) y construye comunidad con el ranking. Técnicamente es modular: puedes mejorar el gripper, cambiar el modelo de IA, o sumar nuevos sensores sin reescribir todo. Socialmente, convierte un acto cotidiano en una experiencia memorable.
+## Valor agregado
+La combinación de robótica, visión y gamificación hace visible el proceso de reciclaje, entrega retroalimentación inmediata y fomenta la participación comunitaria. La modularidad de la arquitectura permite mejorar componentes individuales (gripper, modelo de IA, nuevos sensores) sin rediseñar el sistema completo.
