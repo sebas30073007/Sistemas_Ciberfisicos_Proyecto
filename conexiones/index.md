@@ -7,10 +7,9 @@ has_toc: false
 permalink: /conexiones/
 ---
 
-La sección de conexiones describe cómo se enlazan los componentes eléctricos y electrónicos del robot.
+En esta sección mostramos una vista que va de lo general a lo particular de las diferentes conexiones y protocolos dentro del marco del proyecto.
 
+- **Diagrama a bloques:** Vista general de los componentes del proyecto y como se relacionan.
 - **Arquitectura eléctrica:** resumen del flujo de energía y protecciones.
-- **Mapeo de pines:** asignación de entradas y salidas en el microcontrolador.
-- **Comunicaciones:** protocolos utilizados para coordinar sensores, actuadores y el subsistema de visión.
+- **Embebido-Lector RFID:** asignación de entradas y salidas en el microcontrolador.
 
-Usa esta estructura como guía para documentar diagramas, tablas de cableado y advertencias de seguridad.
