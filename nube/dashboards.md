@@ -1,9 +1,13 @@
 ---
+title: Dashboards (web y móvil)
 layout: default
-title: Monitoreo en tiempo real
-parent: Interfaz de usuario
-nav_order: 2
+parent: Nube
+nav_order: 4
+redirect_from:
+  - /ui/monitoreo-tiempo-real/
 ---
+
+> Esta página fue reubicada en la sección Nube el 29/09/2025.
 
 Explica los elementos gráficos utilizados para supervisar el desempeño del robot.
 
