@@ -7,8 +7,7 @@ redirect_from:
   - /conexiones/embebido-lector-rfid/
 ---
 
-> Esta página fue reubicada en la sección Gabinete Robot el 29/09/2025.
-
+La interfaz de usuario esta comprendida a grandes rasgos por la HMI (controlada por una raspberry) y por un modulo identificador de rfid's.
 ## Vistas de la PCB
 
 ![Diagrama esquemático de la PCB]({{ "/assets/img/PCB_diagrama_esquema.jpg" | relative_url }})
