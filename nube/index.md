@@ -1,7 +1,7 @@
 ---
 title: Nube
 layout: default
-nav_order: 2
+nav_order: 3
 has_children: true
 permalink: /nube/
 redirect_from:
