@@ -1,9 +1,13 @@
 ---
+title: Robot
 layout: default
-title: Chasis y locomoción
-parent: Estructura
-nav_order: 1
+parent: Gabinete Robot
+nav_order: 3
+redirect_from:
+  - /estructura/chasis-y-locomocion/
 ---
+
+> Esta página fue reubicada en la sección Gabinete Robot el 29/09/2025.
 
 Resume las dimensiones clave del chasis y la configuración de movilidad.
 

@@ -1,9 +1,13 @@
 ---
+title: APIs (conteos, guardar imagen, convertir imagen)
 layout: default
-title: Pipeline de visión
-parent: Detección y clasificación
-nav_order: 1
+parent: Nube
+nav_order: 2
+redirect_from:
+  - /deteccion-clasificacion/pipeline-vision/
 ---
+
+> Esta página fue reubicada en la sección Nube el 29/09/2025.
 
 Describe cada etapa del procesamiento de imagen antes de clasificar los residuos.
 
