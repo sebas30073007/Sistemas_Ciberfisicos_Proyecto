@@ -1,9 +1,13 @@
 ---
+title: PC / Remuneración
 layout: default
-title: Panel del operador
-parent: Interfaz de usuario
-nav_order: 1
+parent: Interacción Usuario
+nav_order: 2
+redirect_from:
+  - /ui/panel-operador/
 ---
+
+> Esta página fue reubicada en la sección Interacción Usuario el 29/09/2025.
 
 Detalla los componentes principales de la pantalla de control.
 

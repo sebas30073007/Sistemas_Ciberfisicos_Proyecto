@@ -1,9 +1,13 @@
 ---
+title: Interfaz Usuario
 layout: default
-title: Embebido-Lector RFID
-parent: Conexiones
-nav_order: 3
+parent: Gabinete Robot
+nav_order: 1
+redirect_from:
+  - /conexiones/embebido-lector-rfid/
 ---
+
+> Esta página fue reubicada en la sección Gabinete Robot el 29/09/2025.
 
 ## Vistas de la PCB
 

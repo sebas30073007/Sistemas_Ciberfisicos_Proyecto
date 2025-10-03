@@ -1,9 +1,13 @@
 ---
+title: Aplicación web
 layout: default
-title: Experiencia de usuario
-parent: Interfaz de usuario
-nav_order: 3
+parent: Interacción Usuario
+nav_order: 1
+redirect_from:
+  - /ui/experiencia-usuario/
 ---
+
+> Esta página fue reubicada en la sección Interacción Usuario el 29/09/2025.
 
 Documenta los principios de diseño que guiaron la interfaz del robot.
 
