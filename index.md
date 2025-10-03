@@ -18,6 +18,11 @@ El proyecto documenta el desarrollo de un robot que identifica vidrio, latas y e
 
 Cada sección incluye un índice con enlaces a subsecciones específicas. La información sirve como punto de partida para que ajustes los detalles técnicos con datos del proyecto.
 
+## Estado del proyecto
+- **Equipo:** Haili Avila, Daniela Colin y Sebastián Méndez.
+- **Objetivo:** automatizar la recolección y clasificación básica de residuos reciclables.
+- **Tecnologías clave:** UR3, visión por computadora, sistemas embebidos, estructura funcional y una interfaz.
+
 ## Diagrama a bloques
 
 ![Diagrama general del proyecto]({{ "/assets/img/Proyecto.png" | relative_url }})
@@ -27,14 +32,14 @@ La arquitectura se compone de tres dominios que se comunican entre sí: el gabin
 
 ### Componentes principales
 #### Gabinete del robot
-- **Robótica y sensado:** UR3 con cámara (montada en la muñeca o fija) y gripper para manipulación del residuo.
+- **Robótica y sensado:** UR3 con cámara (montada en la muñeca) y gripper para manipulación del residuo.
 - **Sensores auxiliares:** barrera infrarroja, sensores de proximidad, peso e inductivo para detectar presencia de objetos y condiciones seguras.
-- **Control y seguridad:** PLC para interlocks (puertas, paro de emergencia) y PC industrial que coordina la secuencia, muestra la HMI local y se comunica con la nube.
+- **Control y seguridad:** PLC para interlocks (puertas, paro de emergencia) y PC que coordina la secuencia y se comunica con la nube.
 - **Red local:** todos los elementos se interconectan a través de un switch dedicado que aísla la red de control.
 
 #### Nube y servicios
 - **APIs en Python:** reciben imágenes y eventos, orquestan la clasificación y exponen datos a otras aplicaciones.
-- **Motor de IA:** puede ejecutarse en la nube o delegarse al edge; procesa las imágenes normalizadas y devuelve la clase del residuo.
+- **Motor de IA:** se ejecuta en la nube.
 - **Base de datos y almacenamiento:** conserva usuarios, sesiones, vínculos a evidencias fotográficas y métricas de cada ciclo.
 - **Dashboards web/móvil:** muestran KPIs, ranking y tablas de puntos para seguimiento operativo y gamificación.
 
@@ -43,28 +48,18 @@ La arquitectura se compone de tres dominios que se comunican entre sí: el gabin
 - **Sitio web / app:** permite revisar el ranking global, el historial personal y las reglas de premiación cuando estén disponibles.
 
 ### Flujo operativo
-1. El usuario se identifica (RFID/QR) o opera como invitado.
-2. La cabina detecta el residuo, captura la imagen y la normaliza.
-3. La IA clasifica el material y el UR3 deposita el objeto en el contenedor adecuado.
-4. La PC registra un evento completo en la base de datos (usuario, material, confianza, fecha, máquina, evidencia, tiempo de ciclo).
+1. El usuario se identifica (RFID) o opera como invitado.
+2. La cabina detecta el residuo, captura la imagen y clasifica el material.
+3. El UR3 deposita el objeto en el contenedor adecuado.
+4. La PC registra un evento completo en la base de datos (usuario, material, fecha).
 5. Se actualiza el puntaje y ranking en la HMI y en los dashboards en tiempo real.
 
 ### Datos críticos
 - Identificadores: usuario (si aplica), máquina y sesión.
-- Trazabilidad: fecha/hora UTC, material clasificado, confianza del modelo y enlace a la imagen.
-- Operación: duración del ciclo y puntos otorgados para análisis de desempeño y gamificación.
-
-### Confiabilidad y seguridad
-- **Seguridad funcional:** interlocks del PLC, enclavamiento de puerta y paro de emergencia evitan movimientos peligrosos.
-- **Resiliencia:** la PC almacena en buffer eventos/imágenes si la conectividad falla y los reenvía al restablecer la red.
-- **Ciberseguridad:** comunicaciones HTTPS y APIs protegidas con tokens.
-- **Privacidad:** los eventos sin identificación se mantienen anónimos y solo alimentan métricas agregadas.
+- Trazabilidad: fecha/hora, material clasificado y clasificación.
+- Operación: duración del ciclo y puntos otorgados para análisis de desempeño.
 
 ### Valor agregado
 La combinación de robótica, visión y gamificación hace visible el proceso de reciclaje, entrega retroalimentación inmediata y fomenta la participación comunitaria. La modularidad de la arquitectura permite mejorar componentes individuales (gripper, modelo de IA, nuevos sensores) sin rediseñar el sistema completo.
 
-## Estado del proyecto
 
-- **Equipo:** Haili Avila, Daniela Colin y Sebastián Méndez.
-- **Objetivo:** automatizar la recolección y clasificación básica de residuos reciclables.
-- **Tecnologías clave:** UR3, visión por computadora, sistemas embebidos, estructura funcional y una interfaz.
