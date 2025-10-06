@@ -5,34 +5,75 @@ parent: Interfaz Usuario
 nav_order: 1
 ---
 
-La interfaz de usuario está comprendida a grandes rasgos por la HMI (controlada por una Raspberry) y por un módulo identificador de RFID's.
 
 ## Vistas de la PCB
-
 ![Diagrama esquemático de la PCB]({{ "/assets/img/PCB_diagrama_esquema.jpg" | relative_url }})
-
 ![Distribución de componentes en la PCB]({{ "/assets/img/PCB_placa_esquema.jpg" | relative_url }})
-
 ![Modelo 3D de la PCB]({{ "/assets/img/PCB_placa_esquema_3D.jpg" | relative_url }})
 
-## Descripción general
-Esta placa es el “cerebro embebido” de un módulo de interacción: lee tarjetas RFID, se comunica por Wi-Fi/Bluetooth y ofrece retroalimentación sonora. El núcleo es un **ESP32-WROOM-32**, suficiente para manejar periféricos y lógica de aplicación. Lo acompañan un **módulo RC522** (lector RFID por SPI), un **buzzer** integrado para confirmaciones audibles y un **convertidor UART TTL** que simplifica la programación y diagnóstico desde un puerto serie. Con este conjunto es posible identificar usuarios, registrar eventos y enviar datos a una app o a la nube sin módulos adicionales.
+---
 
-## Organización del hardware
-- **Zona del ESP32:** ubicada en la parte superior izquierda con una *keep-out zone* debajo de la antena para preservar la potencia de la señal Wi-Fi/BLE.
-- **Control de arranque:** pulsadores **EN** (reset) y **BOOT** junto con LEDs de estado permiten reinicios y entrada al modo de carga.
-- **Bus SPI para el RC522:** líneas **SCK**, **MOSI**, **MISO**, **SDA/SS** y **RST** rutadas en paralelo hacia un cabezal dedicado para mantener longitudes similares y buena integridad de señal.
-- **Módulo RFID:** puede montarse directamente sobre la tarjeta o como módulo externo conectado al cabezal, procurando que la antena quede libre de metal.
-- **Buzzer integrado:** situado en la esquina inferior derecha y alimentado desde 3.3 V mediante resistencia de control, aislado para evitar acoplar ruido al bus SPI.
+## ¿Qué hace esta placa?
+Esta placa es el “cerebro embebido” del módulo: **lee tarjetas RFID**, **se comunica por USB/Serial** y **emite confirmaciones audibles**. El núcleo es un **ESP32-WROOM-32**; el lector **RC522** se conecta por **SPI**; un **buzzer** integrado da feedback; y un **USB-UART TTL** permite programar y depurar desde el puerto serie. Con esto se identifican usuarios, se registran eventos y se envían datos a app/nube sin módulos extra.
 
-## Conectividad y alimentación
-- **Conectores de 4 pines:** exponen TX, RX, VCC y GND para programación o monitoreo mediante un adaptador USB-TTL.
-- **Conectores de 3 pines:** proveen VDD, GND y señales del RC522 o alimentación auxiliar según la configuración.
-- **Distribución de energía:** la placa trabaja a 3.3 V. Un plano ancho alimenta al ESP32, RC522 y buzzer, con condensadores cerámicos cercanos para estabilizar el consumo durante transmisiones inalámbricas y lecturas RFID.
-- **Ruteo de señales:** el bus SPI se mantiene en la cara superior con trayectorias rectas; las líneas UART viajan hacia el borde para facilitar el acceso.
+---
 
+## Bloques de hardware (mapa mental rápido)
+1) **ESP32 (zona superior-izquierda)**  
+   - Mantener *keep-out* bajo la antena (sin cobre ni tornillería) para no degradar Wi-Fi/BLE.  
+   - Pines de arranque: **EN** (reset) y **BOOT** (GPIO0) accesibles; LED(s) de estado para flashing.
+
+2) **RC522 por SPI**  
+   - Líneas: **SCK**, **MOSI**, **MISO**, **SS/SDA**, **RST** rutadas en paralelo y lo más cortas posible.  
+   - Antena del RC522 despejada de metal (y de planos de cobre) para mejor lectura.
+
+3) **USB-UART TTL**  
+   - Conector de **4 pines**: **TX**, **RX**, **VCC**, **GND** para programación/monitor.  
+   - Señales UART encaminadas al borde para acceso cómodo.
+
+4) **Buzzer**  
+   - Ubicado en esquina **inferior-derecha**; alimentado a **3.3 V** con limitación.  
+   - Aislado del bus SPI para evitar acople de ruido.
+
+---
+
+## Conectividad y pinout de referencia
+
+**Alimentación**
+- **VDD = 3.3 V** para toda la placa (ESP32, RC522 y buzzer).
+
+**UART0 – Programación**
+- **Pin 1:** GND  
+- **Pin 2:** VDD (3.3 V)  
+- **Pin 3:** TX0 (ESP32 → PC) — GPIO1  
+- **Pin 4:** RX0 (PC → ESP32) — GPIO3
+
+**SPI – Lector RC522 (J3, 8 pines)**
+| Señal RC522 | Net en PCB | GPIO ESP32 | Nota |
+|---|---|---|---|
+| VDD | VDD | — | 3.3 V |
+| RST | RST | **GPIO21** | Reset del RC522 |
+| MISO | MISO | **GPIO19** | VSPI MISO |
+| MOSI | MOSI | **GPIO23** | VSPI MOSI |
+| SCK | SCK | **GPIO18** | VSPI SCK |
+| SDA / SS | SDA | **GPIO5** | Chip select |
+| GND | GND | — | Plano de masa |
+
+**Botones**
+- **EN (EN)** y **BOOT (GPIO0)** accesibles para modo de carga.  
+- **SW1 de usuario** en **GPIO16** (entrada con pull-up a VDD).
+
+**Indicadores**
+- **LED1** en **GPIO2**.  
+- **LED2** en **GPIO17**.
+
+**Actuador**
+- **Buzzer** en net **BUZZ → GPIO22** (a través de R12, retorno a GND).
+
+
+---
 ## Consideraciones de diseño y montaje
-- Placa de dos capas con plano de masa envolvente para minimizar ruido.
+- Placa de una capa con plano de masa envolvente para minimizar ruido.
 - Cuatro orificios de fijación en las esquinas para asegurar al gabinete y reducir vibración.
 - Huellas de resistencias y capacitores en tamaño 1206 para facilitar soldadura manual.
 - Área bajo la antena del ESP32 sin cobre ni tornillería, evitando degradar el enlace inalámbrico.
