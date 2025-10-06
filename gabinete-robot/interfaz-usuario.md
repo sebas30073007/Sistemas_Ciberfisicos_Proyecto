@@ -11,7 +11,7 @@ redirect_from:
 La interfaz de usuario está compuesta por dos bloques principales:
 
 - Una **HMI** gobernada por una Raspberry Pi que centraliza la interacción local con el usuario.
-- Un **módulo RFID** embebido que se encarga de identificar tarjetas y entregar confirmaciones audiovisuales.
+- Un **módulo RFID** embebido que se encarga de identificar tarjetas y entregar confirmaciones auditivas.
 
 En las siguientes subpáginas se detalla cada una de estas piezas.
 
