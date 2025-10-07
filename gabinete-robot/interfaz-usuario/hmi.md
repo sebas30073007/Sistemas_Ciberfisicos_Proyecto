@@ -11,28 +11,28 @@ A continuación se presentan las pantallas principales del entorno gráfico desa
 Cada ventana está diseñada con imágenes de fondo y botones personalizados, asegurando una experiencia intuitiva para el usuario.
 
 ### Pantalla 1 – Bienvenida  
-![Vista de pantalla de bienvenida]({{ "/assets/img/ini.jpg" | relative_url }})
+![Vista de pantalla de bienvenida]({{ "/assets/img/ini.png" | relative_url }})
 
 ### Pantalla 2 – Escaneo de Tarjeta (Inicio de sesión)  
-![Vista de pantalla de escaneo de tarjeta para iniciar sesión]({{ "/assets/img/rfid.jpg" | relative_url }})
+![Vista de pantalla de escaneo de tarjeta para iniciar sesión]({{ "/assets/img/rfid.png" | relative_url }})
 
 ### Pantalla 3 – Escaneo de Tarjeta (Crear cuenta)  
-![Vista de pantalla de escaneo de tarjeta para crear cuenta]({{ "/assets/img/rfid.jpg" | relative_url }})
+![Vista de pantalla de escaneo de tarjeta para crear cuenta]({{ "/assets/img/rfid.png" | relative_url }})
 
 ### Pantalla 4 – Crear cuenta (Ingreso de nombre y foto)  
-![Vista de pantalla para crear cuenta]({{ "/assets/img/crea1.jpg" | relative_url }})
+![Vista de pantalla para crear cuenta]({{ "/assets/img/crea1.png" | relative_url }})
 
 ### Pantalla 5 – Crear cuenta (Captura de foto)  
-![Vista de pantalla para captura de foto al crear cuenta]({{ "/assets/img/crea2.jpg" | relative_url }})
+![Vista de pantalla para captura de foto al crear cuenta]({{ "/assets/img/crea2.png" | relative_url }})
 
 ### Pantalla 6 – Crear cuenta (Cuenta registrada)  
-![Vista de pantalla al haber creado una cuenta]({{ "/assets/img/crea3.jpg" | relative_url }})
+![Vista de pantalla al haber creado una cuenta]({{ "/assets/img/crea3.png" | relative_url }})
 
 ### Pantalla 5 – Inicio de sesión 
-![Vista de pantalla de inicio de sesión]({{ "/assets/img/inises.jpg" | relative_url }})
+![Vista de pantalla de inicio de sesión]({{ "/assets/img/inises.png" | relative_url }})
 
 ### Pantalla 6 – Cargar objeto  
-![Vista de pantalla de carga de objeto]({{ "/assets/img/rec.jpg" | relative_url }})
+![Vista de pantalla de carga de objeto]({{ "/assets/img/rec.png" | relative_url }})
 
 ---
 
