@@ -25,14 +25,23 @@ Cada ventana está diseñada con imágenes de fondo y botones personalizados, as
 ### Pantalla 5 – Crear cuenta (Captura de foto)  
 ![Vista de pantalla para captura de foto al crear cuenta]({{ "/assets/img/crea2.png" | relative_url }})
 
-### Pantalla 6 – Crear cuenta (Cuenta registrada)  
+### Pantalla 7 – Crear cuenta (Cuenta registrada)  
 ![Vista de pantalla al haber creado una cuenta]({{ "/assets/img/crea3.png" | relative_url }})
 
-### Pantalla 5 – Inicio de sesión 
+### Pantalla 8 – Inicio de sesión 
 ![Vista de pantalla de inicio de sesión]({{ "/assets/img/inises.png" | relative_url }})
 
-### Pantalla 6 – Cargar objeto  
+### Pantalla 9 – Cargar objeto  
 ![Vista de pantalla de carga de objeto]({{ "/assets/img/rec.png" | relative_url }})
+
+### Flujo de pantallas desde la pantalla inicial
+![Flujo de pantalla]({{ "/assets/img/flujo.png" | relative_url }})
+
+Como se puede observar al seleccionar el botón de **Inicio sesión** desemboca en el escaneo de la tarjeta como se muestra en la **Pantalla 2 - Escaneo de Tarjeta**. Se hace el escaneo para obtener el nombre y puntaje de este usuario verificando si coincide con alguna ID de tarjetas en la base de datos. En la **Pantalla 8 – Inicio de sesión** se muestra el puntaje que lleva hasta ahora el usuario y se muestra el botón de **Cargar objeto**. Posterior a un exitoso inicio de sesión si se dio clic en botón de **Cargar objeto** se despliega la **Pantalla 9 - Cargar Objeto** que simplemente se carga el objeto a reciclar y al haber inciiado sesión anteriormente se abonan los puntos de la cantidad de objetos cargados.
+
+Después se encuentra el botón de **Crear cuenta** este igualmente requiere el escaneo de la tarjeta como se muestra en la **Pantalla 3 - Escaneo de Tarjeta** para empezar el registro de un nuevo usuario en la base de datos. La siguiente pantalla es **Pantalla 4 – Crear cuenta** que solicita el nombre del nuevo usuario, en la **Pantalla 5 – Crear cuenta** aparece un Pop Up que avisa al usuario de la captura de una foto, al obtener la foto del usuario se muestra la **Pantalla 6 – Crear cuenta** que avisa si el usuario fue registrado con éxito. Al completarse se dirige de nuevo a la Pantalla Inicial la **Pantalla 1 – Bienvenida** donde debe el usuario ahora ejecutar un inicio de sesión como fue descrito anteriormente.
+
+Por ultimo el botón de **Reciclar si cuenta** siemplemente dirige al usuario a la **Pantalla 9 - Cargar Objeto**.
 
 ---
 
@@ -40,7 +49,7 @@ Cada ventana está diseñada con imágenes de fondo y botones personalizados, as
 
 Esta interfaz gráfica actúa como el **puente entre el usuario y el sistema embebido**.  
 Su propósito principal es permitir que los usuarios se registren o inicien sesión mediante una **tarjeta RFID**, y posteriormente interactúen con las funciones disponibles (como carga de objetos o consulta de puntos). De igual forma esta la posibilidad de cargar un objeto para reciclar sin la necesidad de una tarjeta RFID.
-
+Como se puede observar
 El HMI fue desarrollado en **Python 3**, utilizando las siguientes bibliotecas:
 - `tkinter` → creación de ventanas, botones y eventos.
 - `PIL (ImageTk)` → manejo y escalado de imágenes.
