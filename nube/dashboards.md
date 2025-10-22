@@ -2,7 +2,7 @@
 title: Dashboards (web y móvil)
 layout: default
 parent: Nube
-nav_order: 4
+nav_order: 3
 redirect_from:
   - /ui/monitoreo-tiempo-real/
 ---
