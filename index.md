@@ -13,8 +13,8 @@ El proyecto documenta el desarrollo de un robot que identifica vidrio, latas y e
 ## Cómo navegar la documentación
 
 - [Gabinete Robot]({{ "/gabinete-robot/" | relative_url }}): Infraestructura física, cableado e interfaces embebidas.
-- [Nube]({{ "/nube/" | relative_url }}): Servicios de datos, APIs, IA, dashboards y contratos JSON.
-- [Interacción Usuario]({{ "/interaccion-usuario/" | relative_url }}): Aplicaciones, flujos y retroalimentación para los usuarios finales.
+- [Nube]({{ "/nube/" | relative_url }}):
+- [Interacción Usuario]({{ "/interaccion-usuario/" | relative_url }}): Aplicaciones, flujos y retroalimentación para los usuarios.
 
 Cada sección incluye un índice con enlaces a subsecciones específicas. La información sirve como punto de partida para que ajustes los detalles técnicos con datos del proyecto.
 
@@ -47,6 +47,10 @@ La arquitectura se compone de tres dominios que se comunican entre sí: el gabin
 - **HMI local:** guía al usuario durante el depósito, muestra instrucciones, confirma resultados y reproduce mensajes de audio.
 - **Sitio web / app:** permite revisar el ranking global, el historial personal y las reglas de premiación cuando estén disponibles.
 
+## Diagrama a bloques
+
+![Diagrama general del algoritmo]({{ "/assets/img/Algoritmo.png" | relative_url }})
+
 ### Flujo operativo
 1. El usuario se identifica (RFID) o opera como invitado.
 2. La cabina detecta el residuo, captura la imagen y clasifica el material.
@@ -55,11 +59,10 @@ La arquitectura se compone de tres dominios que se comunican entre sí: el gabin
 5. Se actualiza el puntaje y ranking en la HMI y en los dashboards en tiempo real.
 
 ### Datos críticos
-- Identificadores: usuario (si aplica), máquina y sesión.
-- Trazabilidad: fecha/hora, material clasificado y clasificación.
+- Identificadores: usuario (si aplica), máquina.
+- Trazabilidad: fecha/hora, material clasificado.
 - Operación: duración del ciclo y puntos otorgados para análisis de desempeño.
 
 ### Valor agregado
-La combinación de robótica, visión y gamificación hace visible el proceso de reciclaje, entrega retroalimentación inmediata y fomenta la participación comunitaria. La modularidad de la arquitectura permite mejorar componentes individuales (gripper, modelo de IA, nuevos sensores) sin rediseñar el sistema completo.
-
+La combinación de robótica, visión y gamificación hace visible el proceso de reciclaje, entrega retroalimentación inmediata y fomenta la participación comunitaria. La modularidad de la arquitectura permite mejorar componentes individuales (gripper, nuevos sensores) sin rediseñar el sistema completo.
 
