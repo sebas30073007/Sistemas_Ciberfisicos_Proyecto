@@ -23,7 +23,7 @@ Cada sección incluye un índice con enlaces a subsecciones específicas. La inf
 - **Objetivo:** automatizar la recolección y clasificación básica de residuos reciclables.
 - **Tecnologías clave:** UR3, visión por computadora, sistemas embebidos, estructura funcional y una interfaz.
 
-## Diagrama a bloques
+## Diagrama a bloques del Proyecto General
 
 ![Diagrama general del proyecto]({{ "/assets/img/Diagrama_de_Proyecto.png" | relative_url }})
 
@@ -47,7 +47,7 @@ La arquitectura se compone de tres dominios que se comunican entre sí: el gabin
 - **HMI local:** guía al usuario durante el depósito, muestra instrucciones, confirma resultados y reproduce mensajes de audio.
 - **Sitio web / app:** permite revisar el ranking global, el historial personal y las reglas de premiación cuando estén disponibles.
 
-## Diagrama a bloques
+## Diagrama a bloques del Algoritmo
 
 ![Diagrama general del algoritmo]({{ "/assets/img/Algoritmo.png" | relative_url }})
 
