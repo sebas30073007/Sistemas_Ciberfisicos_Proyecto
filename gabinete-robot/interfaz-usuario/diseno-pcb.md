@@ -5,16 +5,15 @@ parent: Interfaz Usuario
 nav_order: 1
 ---
 
+## ¿Qué hace esta placa?
+Esta placa es el “cerebro embebido” : **lee tarjetas RFID**, **se comunica por USB/Serial** y **emite confirmaciones audibles**. El núcleo es un **ESP32-WROOM-32**; el lector **RC522** se conecta por **SPI**; un **buzzer** integrado da feedback; y un **USB-UART TTL** permite programar y depurar desde el puerto serie. Con esto se identifican usuarios, se registran eventos y se envían datos a app/nube sin módulos extra.
+
+---
 
 ## Vistas de la PCB
 ![Diagrama esquemático de la PCB]({{ "/assets/img/PCB_diagrama_esquema.jpg" | relative_url }})
 ![Distribución de componentes en la PCB]({{ "/assets/img/PCB_placa_esquema.jpg" | relative_url }})
 ![Modelo 3D de la PCB]({{ "/assets/img/PCB_placa_esquema_3D.jpg" | relative_url }})
-
----
-
-## ¿Qué hace esta placa?
-Esta placa es el “cerebro embebido” del módulo: **lee tarjetas RFID**, **se comunica por USB/Serial** y **emite confirmaciones audibles**. El núcleo es un **ESP32-WROOM-32**; el lector **RC522** se conecta por **SPI**; un **buzzer** integrado da feedback; y un **USB-UART TTL** permite programar y depurar desde el puerto serie. Con esto se identifican usuarios, se registran eventos y se envían datos a app/nube sin módulos extra.
 
 ---
 
@@ -50,15 +49,15 @@ Esta placa es el “cerebro embebido” del módulo: **lee tarjetas RFID**, **se
 
 **SPI – Lector RC522 (J3, 8 pines)**
 
-| Señal RC522 | Net en PCB | GPIO ESP32 | Nota          |
-|-------------|------------|------------|---------------|
-| VDD         | VDD        |            | 3.3 V         |
-| RST         | RST        | GPIO21     | Reset RC522   |
-| MISO        | MISO       | GPIO19     | VSPI MISO     |
-| MOSI        | MOSI       | GPIO23     | VSPI MOSI     |
-| SCK         | SCK        | GPIO18     | VSPI SCK      |
-| SDA / SS    | SDA        | GPIO5      | Chip select   |
-| GND         | GND        |            | Plano de masa |
+| Señal RC522 | GPIO ESP32 | Nota          |
+|-------------|------------|---------------|
+| VDD         |            | 3.3 V         |
+| RST         | GPIO21     | Reset RC522   |
+| MISO        | GPIO19     | VSPI MISO     |
+| MOSI        | GPIO23     | VSPI MOSI     |
+| SCK         | GPIO18     | VSPI SCK      |
+| SDA / SS    | GPIO5      | Chip select   |
+| GND         |            | Plano de masa |
 
 **Botones**
 - **EN (EN)** y **BOOT (GPIO0)** accesibles para modo de carga.  
@@ -78,3 +77,10 @@ Esta placa es el “cerebro embebido” del módulo: **lee tarjetas RFID**, **se
 - Cuatro orificios de fijación en las esquinas para asegurar al gabinete y reducir vibración.
 - Huellas de resistencias y capacitores en tamaño 1206 para facilitar soldadura manual.
 - Área bajo la antena del ESP32 sin cobre ni tornillería, evitando degradar el enlace inalámbrico.
+
+---
+## Fabricación
+La PCB fue mandada a manofacturar a los laboratorios de JLCPCB: [Descargar archivos Gerber]( {{ "assets/documentos/ESP32_Finaaaaal.zip" | relative_url }} ){: .btn .btn-primary }
+
+
+![PCB ordenada]({{ "/assets/img/PCB_JLCPCB.jpg" | relative_url }})
