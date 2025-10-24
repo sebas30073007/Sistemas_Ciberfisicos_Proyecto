@@ -47,6 +47,7 @@ El sistema devuelve como salida la clase con mayor porcentaje de relación.
 
 ![Entrenamiento del modelo]({{ "/assets/img/Entrenamiento.png" | relative_url }})
 
+
 ---
 
 ## 4. Exportación e integración
