@@ -1,7 +1,7 @@
 ---
 title: UR3
 layout: default
-parent: Arquitectura Eléctrica
+parent: Robot
 has_children: true
 ---
 

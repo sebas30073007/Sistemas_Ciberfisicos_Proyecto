@@ -1,5 +1,5 @@
 ---
-title: Arquitectura Eléctrica
+title: Robot
 layout: default
 parent: Gabinete Robot
 nav_order: 9
