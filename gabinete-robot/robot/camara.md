@@ -1,6 +1,6 @@
 ---
 title: Cámara
 layout: default
-parent: Arquitectura Eléctrica
+parent: Robot
 ---
 
