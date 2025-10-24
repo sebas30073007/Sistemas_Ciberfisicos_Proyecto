@@ -8,34 +8,29 @@ redirect_from:
 
 # Robot clasificador de residuos
 
-El proyecto documenta el desarrollo de un robot que identifica vidrio, latas y envases Tetra Pak para separarlos automáticamente. Aquí encontrarás desde la arquitectura electrónica hasta la lógica de clasificación y las interfaces de operación.
-
-## Cómo navegar la documentación
-
-- [Gabinete Robot]({{ "/gabinete-robot/" | relative_url }}): Infraestructura física, cableado e interfaces embebidas.
-- [Nube]({{ "/nube/" | relative_url }}):
-- [Interacción Usuario]({{ "/interaccion-usuario/" | relative_url }}): Aplicaciones, flujos y retroalimentación para los usuarios.
-
-Cada sección incluye un índice con enlaces a subsecciones específicas. La información sirve como punto de partida para que ajustes los detalles técnicos con datos del proyecto.
+Este proyecto documenta el desarrollo de un robot que identifica vidrio, latas y envases de Tetra Pak para separarlos automáticamente. Aquí encontrarás desarrollado la arquitectura electrónica, lógica de clasificación y las interfaces de operación.
+Cada sección incluye un índice con enlaces a subsecciones específicas.
 
 ## Estado del proyecto
 - **Equipo:** Haili Avila, Daniela Colin y Sebastián Méndez.
 - **Objetivo:** automatizar la recolección y clasificación básica de residuos reciclables.
 - **Tecnologías clave:** UR3, visión por computadora, sistemas embebidos, estructura funcional y una interfaz.
 
-## Diagrama a bloques del Proyecto General
+## Diagrama a bloques
 
-![Diagrama general del proyecto]({{ "/assets/img/Diagrama_de_Proyecto.png" | relative_url }})
+![Diagrama general del proyecto]({{ "/assets/img/Diagrama_a_bloques.jpg" | relative_url }})
+
 
 ### Visión general
-La arquitectura se compone de tres dominios que se comunican entre sí: el gabinete del robot (infraestructura física), la nube (servicios y procesamiento) y las interfaces de usuario (experiencia del operador y del público). Esta estructura permite separar responsabilidades sin perder trazabilidad entre eventos.
+La arquitectura se compone de tres dominios que se comunican entre sí: el gabinete del robot (infraestructura física), la nube (servicios y procesamiento) y las interfaces de usuario (experiencia del público).
 
 ### Componentes principales
 #### Gabinete del robot
-- **Robótica y sensado:** UR3 con cámara (montada en la muñeca) y gripper para manipulación del residuo.
-- **Sensores auxiliares:** barrera infrarroja, sensores de proximidad, peso e inductivo para detectar presencia de objetos y condiciones seguras.
-- **Control y seguridad:** PLC para interlocks (puertas, paro de emergencia) y PC que coordina la secuencia y se comunica con la nube.
-- **Red local:** todos los elementos se interconectan a través de un switch dedicado que aísla la red de control.
+- **Red y comunicaciones:** Un router provee al sistema de conexión a Internet. Aparte los diversos modulos del gabinete usan protocolos SPI, Serial, HDMI, Ethernet para interactuar entre ellos o con el procesador central.
+- **Control general:** Una PC dedicada coordina las operaciones del robot, inputs del HMI y comunicación con la nube, así como accionar secuencias lógicas (procesos pre-establecidos de funcionamiento).
+- **Interfaz de Usuario:** Identidfica al usuario mediante tarjeta (ID único), muestra instrucciones e indicaciones.
+- **Recepción de residuos:** contiene los componentes industriales y robustos de sensado y verificación de aceptación de residuos "permitidos".
+- **Robot:** Manipulador UR3 que recolecta y clasifica residuos con ayuda de un modelo de detección por vision artificial.
 
 #### Nube y servicios
 - **APIs en Python:** reciben imágenes y eventos, orquestan la clasificación y exponen datos a otras aplicaciones.
@@ -46,6 +41,7 @@ La arquitectura se compone de tres dominios que se comunican entre sí: el gabin
 #### Interfaces de usuario
 - **HMI local:** guía al usuario durante el depósito, muestra instrucciones, confirma resultados y reproduce mensajes de audio.
 - **Sitio web / app:** permite revisar el ranking global, el historial personal y las reglas de premiación cuando estén disponibles.
+
 
 ## Diagrama a bloques del Algoritmo
 
@@ -59,10 +55,9 @@ La arquitectura se compone de tres dominios que se comunican entre sí: el gabin
 5. Se actualiza el puntaje y ranking en la HMI y en los dashboards en tiempo real.
 
 ### Datos críticos
-- Identificadores: usuario (si aplica), máquina.
-- Trazabilidad: fecha/hora, material clasificado.
-- Operación: duración del ciclo y puntos otorgados para análisis de desempeño.
+- Identificadores: usuario.
+- Trazabilidad: fecha/hora, material clasificado y clasificación.
+- Operación: duración del ciclo y puntos otorgados.
 
 ### Valor agregado
-La combinación de robótica, visión y gamificación hace visible el proceso de reciclaje, entrega retroalimentación inmediata y fomenta la participación comunitaria. La modularidad de la arquitectura permite mejorar componentes individuales (gripper, nuevos sensores) sin rediseñar el sistema completo.
-
+La combinación de robótica, visión y gamificación hace visible el proceso de reciclaje, entrega retroalimentación inmediata y fomenta la participación comunitaria. La modularidad de la arquitectura permite mejorar componentes individuales (gripper, modelo de IA, nuevos sensores) sin rediseñar el sistema completo.
