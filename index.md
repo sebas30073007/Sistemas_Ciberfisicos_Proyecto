@@ -48,11 +48,13 @@ La arquitectura se compone de tres dominios que se comunican entre sí: el gabin
 ![Diagrama general del algoritmo]({{ "/assets/img/Algoritmo.png" | relative_url }})
 
 ### Flujo operativo
-1. El usuario se identifica (RFID) o opera como invitado.
-2. La cabina detecta el residuo, captura la imagen y clasifica el material.
-3. El UR3 deposita el objeto en el contenedor adecuado.
-4. La PC registra un evento completo en la base de datos (usuario, material, fecha).
-5. Se actualiza el puntaje y ranking en la HMI y en los dashboards en tiempo real.
+1. Preparación: el PLC abre la puerta y los sensores verifican que no haya obstrucciones.
+2. Colocación: la pantalla indica cómo acomodar el objeto; cuando queda alineado, se continúa.
+3. Clasificación local: la cámara toma una imagen y la PC/Raspberry decide si es lata, vidrio o Tetra Pak.
+4. Si no coincide, se marca como incompatible y se pide retirarlo.
+5. Acción del robot: el UR3 ejecuta la rutina correspondiente y deposita el residuo en su contenedor.
+6. Cierre y feedback: aparece una animación de confirmación (+1), el robot vuelve a Home, se cierra la puerta y el sistema queda listo para el siguiente usuario.
+
 
 ### Datos críticos
 - Identificadores: usuario.
