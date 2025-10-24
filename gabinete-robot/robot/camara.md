@@ -26,11 +26,8 @@ Cada categoría se capturó con fondo oscuro y condiciones controladas para redu
 
 ## 2. Entrenamiento del modelo
 
-Una vez cargadas las imágenes, se seleccionó la opción **“Entrenar modelo”** con la configuración predeterminada de Teachable Machine.  
-El proceso fue rápido (unos segundos), generando una red neuronal ligera basada en **TensorFlow -> Keras**, adecuada para integrarse en el sistema embebido del robot.
-
-El modelo aprendió a distinguir los patrones visuales característicos de cada clase (forma, textura, color dominante).  
-El entrenamiento se validó en tiempo real mediante la cámara del sistema, observando el nivel de confianza para cada predicción.
+Una vez cargadas las imágenes, se seleccionó la opción **“Entrenar modelo”** con la configuración predeterminada de Teachable Machine.   El proceso fue rápido (unos segundos), generando una red neuronal ligera basada en **TensorFlow -> Keras**, adecuada para integrarse en el sistema embebido del robot.
+El modelo aprendió a distinguir los patrones visuales característicos de cada clase (forma, textura, color dominante). El entrenamiento se validó en tiempo real mediante la cámara del sistema, observando el nivel de confianza para cada predicción.
 
 ---
 
