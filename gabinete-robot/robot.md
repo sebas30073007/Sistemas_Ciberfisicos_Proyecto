@@ -31,7 +31,7 @@ Se ha añadido una estructura superior desmontable para facilitar el transporte 
 El brazo robótico **UR3** se ubica en el centro del eje X y alineado al borde superior del eje Y (Y=0 cm en el modelo si se toma la parte frontal como positiva).
 * **Posición X:** 500 mm (Centro del ancho).
 * **Posición Y:** Borde superior de la estructura.
-* **Placa de Montaje:** Base metálica de $120 \times 120 \text{ mm}$.
+* **Placa de Montaje:** Base metálica de 120x120mm.
 * **Soporte:** Se apoya sobre dos perfiles de mayor grosor que el estándar 40x40.
 
 ### B. Módulo de Clasificación de Materiales
