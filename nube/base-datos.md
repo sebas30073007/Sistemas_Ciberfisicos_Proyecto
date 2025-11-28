@@ -7,12 +7,13 @@ redirect_from:
   - /deteccion-clasificacion/gestion-datos/
 ---
 
-> Esta página fue reubicada en la sección Nube el 29/09/2025.
+Se uitlizó la base de datos Firebase Realtime Database ingresando la estructura siguiente
+-> usuarios
+  -> 000000000
+    -> fecha_creacion: "YYYY-MM-DD HH:MM:SS"
+    -> lata: 0
+    -> nombre: ""
+    -> tetra: 0
+    -> vidrio: 0
 
-Documenta la construcción del dataset y el manejo de versiones para los modelos.
-
-- Fuentes de datos y proceso de captura.
-- Lineamientos de etiquetado y control de calidad.
-- Estrategias de partición (entrenamiento, validación, prueba) y almacenamiento.
-
-Incluye vínculos a repositorios o servicios externos donde residen los datasets.
+Cada usuario tiene esta misma estructura.
