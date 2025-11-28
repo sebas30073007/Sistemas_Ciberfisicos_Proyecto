@@ -7,9 +7,7 @@ redirect_from:
   - /deteccion-clasificacion/gestion-datos/
 ---
 
-
 Se uitlizó la base de datos Firebase Realtime Database ingresando la estructura siguiente
-**Estructura de datos:**
 - `usuarios/`
   - `[ID_USUARIO]/`
     - `fecha_creacion`: "YYYY-MM-DD HH:MM:SS"
@@ -18,4 +16,4 @@ Se uitlizó la base de datos Firebase Realtime Database ingresando la estructura
     - `tetra`: 0
     - `vidrio`: 0
 
-Cada usuario tiene esta misma estructura.
+Cada usuario tiene esta misma estructura. Para acceder a la base de datos se necesita la llave de otra forma, no sería posible. Además se usa la librería firebase_admin y de esta credentials y db.
