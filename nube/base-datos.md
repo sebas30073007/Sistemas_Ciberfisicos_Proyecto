@@ -1,5 +1,5 @@
 ---
-title: Base de datos (MongoDB)
+title: Base de datos (Firebase)
 layout: default
 parent: Nube
 nav_order: 1
