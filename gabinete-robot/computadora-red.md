@@ -1,8 +1,8 @@
 ---
-title: Computadora y red
+title: Red de comunicaciones
 layout: default
 parent: Gabinete Robot
-nav_order: 4
+nav_order: 5
 ---
 
 # Computadora y Red
