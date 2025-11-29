@@ -2,10 +2,8 @@
 title: Interfaz Usuario
 layout: default
 parent: Gabinete Robot
-nav_order: 1
+nav_order: 2
 has_children: true
-redirect_from:
-  - /conexiones/embebido-lector-rfid/
 ---
 
 La interfaz de usuario del robot es el punto de contacto directo con la persona que deposita los residuos. Está pensada para guiar la interacción de forma intuitiva, brindar retroalimentación inmediata y permitir un diagnóstico rápido por parte del equipo técnico.

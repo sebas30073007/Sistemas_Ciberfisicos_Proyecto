@@ -2,11 +2,8 @@
 title: Recepción de residuos
 layout: default
 parent: Gabinete Robot
-nav_order: 2
-redirect_from:
-  - /estructura/mecanismo-recoleccion/
-  - /estructura/almacenamiento-de-residuos/
-  - /estructura/almacenamiento/
+nav_order: 3
+has_children: true
 ---
 
 > Esta página fue reubicada en la sección Gabinete Robot el 29/09/2025.

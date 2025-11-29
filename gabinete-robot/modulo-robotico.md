@@ -1,11 +1,9 @@
 ---
-title: Robot
+title: Modulo Robotico
 layout: default
 parent: Gabinete Robot
-nav_order: 9
+nav_order: 4
 has_children: true
-redirect_from:
-  - /conexiones/arquitectura-electrica/
 ---
 
 Esta sección concentra los elementos directamente involucrados en la manipulación de residuos: el brazo colaborativo UR3, los sensores de visión y los accesorios que le permiten operar dentro del gabinete.
