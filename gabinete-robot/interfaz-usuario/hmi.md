@@ -7,8 +7,7 @@ nav_order: 2
 
 ## Vistas de la Interfaz
 
-A continuación se presentan las pantallas principales del entorno gráfico desarrollado en **Tkinter** para la Raspberry Pi.  
-Cada ventana está diseñada con imágenes de fondo y botones personalizados, asegurando una experiencia intuitiva para el usuario.
+A continuación se presentan las pantallas principales del entorno gráfico desarrollado en **Tkinter** para la Raspberry Pi. Cada ventana está diseñada con imágenes de fondo y botones personalizados, asegurando una experiencia intuitiva para el usuario.
 
 ### Pantalla 1 – Bienvenida  
 ![Vista de pantalla de bienvenida]({{ "/assets/img/ini.png" | relative_url }})
