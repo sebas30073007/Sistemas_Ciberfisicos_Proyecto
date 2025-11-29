@@ -1,10 +1,9 @@
 ---
-title: Estructura del Gabinete
+title: Arquitectura general
 layout: default
 parent: Gabinete Robot
-nav_order: 3
-redirect_from:
-  - /estructura/chasis-y-locomocion/
+nav_order: 1
+has_children: true
 ---
 
 # Estructura del Gabinete — Dimensiones y Configuración
