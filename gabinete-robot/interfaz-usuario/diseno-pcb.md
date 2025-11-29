@@ -1,5 +1,5 @@
 ---
-title: Diseño de la PCB
+title: RFID reader
 layout: default
 parent: Interfaz Usuario
 nav_order: 1
@@ -11,6 +11,7 @@ Esta placa es el “cerebro embebido” : **lee tarjetas RFID**, **se comunica p
 ---
 
 ## Vistas de la PCB
+![PCB real]({{ "/assets/img/PCB-real.jpg" | relative_url }})
 ![Diagrama esquemático de la PCB]({{ "/assets/img/PCB_diagrama_esquema.jpg" | relative_url }})
 ![Distribución de componentes en la PCB]({{ "/assets/img/PCB_placa_esquema.jpg" | relative_url }})
 ![Modelo 3D de la PCB]({{ "/assets/img/PCB_placa_esquema_3D.jpg" | relative_url }})

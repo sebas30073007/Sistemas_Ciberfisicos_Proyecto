@@ -6,7 +6,11 @@ nav_order: 2
 has_children: true
 ---
 
+# Interfaz de Usuario
+
 La interfaz de usuario del robot es el punto de contacto directo con la persona que deposita los residuos. Está pensada para guiar la interacción de forma intuitiva, brindar retroalimentación inmediata y permitir un diagnóstico rápido por parte del equipo técnico.
+
+---
 
 ![UI]({{ "/assets/img/UI.jpg" | relative_url }})
 
