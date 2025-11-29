@@ -8,7 +8,7 @@ has_children: true
 
 # Estructura del Gabinete — Dimensiones y Configuración
 
-El gabinete se diseñó a partir de una estructura preexistente del laboratorio, que emplea el **Sistema 8 de perfiles de aluminio de 40×40 mm** para garantizar rigidez y modularidad. Su diseño es diferente a la iteración CAD inicial debido a ajustes en materiales y funcionalidad.
+El gabinete se diseñó a partir de una estructura preexistente del laboratorio, que emplea el **perfiles de aluminio de 40×40 mm** para garantizar rigidez y modularidad.
 
 ---
 
@@ -17,24 +17,22 @@ El gabinete se diseñó a partir de una estructura preexistente del laboratorio,
 Las dimensiones base del bastidor principal son:
 * **Ancho (Eje X):** 1000 mm
 * **Fondo/Profundidad (Eje Y):** 620 mm
-* **Altura (Eje Z), sin ruedas:** $\approx$ 700 mm (Medida a confirmar y ajustar)
+* **Altura (Eje Z):** $\approx$ 700 mm
 
-### Estructura Superior Desmontable
-Se ha añadido una estructura superior desmontable para facilitar el transporte a través de zonas pequeñas. Esta se conforma por **cuatro perfiles verticales de 1200 mm** en las esquinas, unidos por perfiles horizontales de **540 mm (Eje Y)** y **920 mm (Eje X)** en la parte superior.
+![Dimenciones]({{ "/assets/img/Dimenciones_estructura.jpg" | relative_url }})
 
 ---
 
 ## 2) Distribución de Componentes Principales
 
 ### A. Montaje del Robot UR3
-El brazo robótico **UR3** se ubica en el centro del eje X y alineado al borde superior del eje Y (Y=0 cm en el modelo si se toma la parte frontal como positiva).
 * **Posición X:** 500 mm (Centro del ancho).
 * **Posición Y:** Borde superior de la estructura.
-* **Placa de Montaje:** Base metálica de 120x120mm.
-* **Soporte:** Se apoya sobre dos perfiles de mayor grosor que el estándar 40x40.
+
+![Dimenciones UR3]({{ "/assets/img/Dimenciones_UR3.jpg" | relative_url }})
 
 ### B. Módulo de Clasificación de Materiales
-En la parte posterior de la estructura (eje Y negativo, detrás del UR3), se incorporó un módulo para la clasificación.
+En la parte posterior de la estructura (eje Y negativo, detrás del UR3), se incorporaron 3 contenedores para la clasificación.
 * **Soporte de Botes:** Se agregaron dos perfiles de 300 mm de profundidad en las esquinas (Eje Y negativo) y se cerró la geometría con un perfil de 920 mm (Eje X), creando una zona para los tres botes de reciclaje (**TetraPak, Vidrio y Latas**).
 * **Refuerzo Estructural:** En esta zona se instalaron **dos perfiles de 300 mm en ángulo de $45^\circ$** para aumentar la rigidez de la estructura al recibir la carga de la parte superior.
 
