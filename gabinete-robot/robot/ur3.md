@@ -1,7 +1,7 @@
 ---
 title: UR3
 layout: default
-parent: Arquitectura general
+parent: Modulo Robotico
 has_children: true
 ---
 
