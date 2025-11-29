@@ -1,7 +1,7 @@
 ---
 title: Cámara
 layout: default
-parent: Arquitectura general
+parent: Modulo Robotico
 ---
 
 # Entrenamiento del modelo de visión
