@@ -8,13 +8,13 @@ redirect_from:
 
 # Robot clasificador de residuos
 
-Este proyecto documenta el desarrollo de un robot que identifica vidrio, latas y envases de Tetra Pak para separarlos automáticamente. Aquí encontrarás desarrollado la arquitectura electrónica, lógica de clasificación y las interfaces de operación.
+Este proyecto documenta el desarrollo de un robot que identifica vidrio, latas y envases de Tetra Pak para separarlos automáticamente. Aquí encontrarás desarrollado la arquitectura, electrónica, lógica de clasificación y las interfaces de operación.
 Cada sección incluye un índice con enlaces a subsecciones específicas.
 
 ## Estado del proyecto
 - **Equipo:** Haili Avila, Daniela Colin y Sebastián Méndez.
 - **Objetivo:** automatizar la recolección y clasificación básica de residuos reciclables.
-- **Tecnologías clave:** UR3, visión por computadora, sistemas embebidos, estructura funcional y una interfaz.
+- **Tecnologías clave:** UR3, visión por computadora, sistemas embebidos, estructura funcional y una interfaz de usuario.
 
 ## Diagrama a bloques
 
