@@ -9,25 +9,32 @@ redirect_from:
   - /estructura/
 ---
 
-El gabinete del robot integra la infraestructura física, el cableado y los subsistemas electrónicos que permiten que el robot de reciclaje opere de forma autónoma y segura. Aquí se recopilan los elementos que antes estaban dispersos en las secciones de «Conexiones» y «Estructura», ofreciendo una lectura de lo general a lo particular.
+El gabinete del robot integra la infraestructura física, el cableado y los subsistemas electrónicos que permiten que el robot de reciclaje opere de forma autónoma y segura.
+
+![Estructura]({{ "/assets/img/Gabinete_robot.jpg" | relative_url }})
 
 ## ¿Qué encontrarás en esta sección?
 
-- **Topología general del gabinete.** Incluye la disposición de perfiles, la distribución de volúmenes útiles y los criterios que guiaron la integración mecánica de los diferentes módulos.
-- **Interfaces de usuario locales.** Desde la HMI hasta el módulo RFID, detallando cómo se concibe la experiencia para la persona que deposita residuos.
-- **Subsistemas robóticos y sensores.** El brazo UR3, la cámara de visión y los elementos que habilitan la clasificación.
-- **Red, cómputo y recepción de residuos.** Un repaso por la electrónica de potencia, la red local y el manejo de los contenedores.
+1. **Arquitectura general del gabinete**
+   - Distribución física de los módulos: interfaz de usuario, recepción de residuos y célula robótica.
 
-Cada subsección profundiza en su propio «qué» y «cómo», describiendo componentes, conexiones y configuraciones relevantes.
+2. **Interfaz de usuario en el gabinete**
+   - Lector de tarjetas RFID (RC522), microcontrolador ESP32 y convertidor TTL–Serial.
+   - HMI táctil basada en Raspberry Pi y descripción de la experiencia de la persona que deposita residuos.
 
-## Cómo navegar la documentación
+3. **Módulo de recepción de residuos**
+   - PLC Siemens LOGO! y señales de entrada/salida relevantes.
+   - Puerta automática con actuador lineal y su coordinación con el resto del sistema.
 
-1. Comienza por **[Interfaz de usuario](./interfaz-usuario.html)** para entender la interacción con la persona operadora y los mecanismos de identificación.
-2. Continúa con **[Recepción de residuos](./recepcion-residuos.html)** para conocer la mecánica de los depósitos y el acoplamiento con el robot.
-3. Revisa **[Robot](./robot_.html)** para tener un panorama de los actuadores, sensores y elementos de control del brazo UR3.
-4. Finaliza en **[Computadora y red](./computadora-red.html)** si necesitas detalles de la conectividad, switching y administración remota.
+4. **Módulo robótico**
+   - Microprocesador del robot (Raspberry Pi).
+   - Cámara de profundidad utilizada para la clasificación.
+   - Brazo robótico UR3 y gripper de mano robótica suave.
 
-Estas páginas están pensadas como un hilo conductor: puedes leerlas de principio a fin para obtener un panorama completo o consultarlas de forma puntual cuando necesites información específica de cada módulo.
+5. **Red de comunicaciones y cómputo**
+   - Topología de la red local: PC central y switch Ethernet.
+   - Conexiones USB y serial que enlazan los diferentes microprocesadores y módulos de control.
+
 
 ## Convenciones y alcance
 
