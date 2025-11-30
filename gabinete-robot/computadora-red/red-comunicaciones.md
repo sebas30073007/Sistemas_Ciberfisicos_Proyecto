@@ -66,7 +66,6 @@ pip install requests flask python-snap7
 ### Pruebas rápidas de comunicación
 
 A continuación se muestran fragmentos de código pensados para **probar la comunicación** con cada dispositivo de forma aislada.  
-La idea es que cualquier persona pueda levantar estos scripts y validar el enlace antes de correr la lógica completa.
 
 ---
 
