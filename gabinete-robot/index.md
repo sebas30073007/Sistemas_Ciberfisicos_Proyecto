@@ -9,7 +9,12 @@ redirect_from:
   - /estructura/
 ---
 
+# Gabinete
+
 El gabinete del robot integra la infraestructura física, el cableado y los subsistemas electrónicos que permiten que el robot de reciclaje opere de forma autónoma y segura.
+
+---
+
 
 ![Estructura]({{ "/assets/img/Gabinete_robot.jpg" | relative_url }})
 

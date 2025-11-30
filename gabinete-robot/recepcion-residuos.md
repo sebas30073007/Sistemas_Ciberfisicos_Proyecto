@@ -6,8 +6,8 @@ nav_order: 3
 has_children: true
 ---
 
-> Esta página fue reubicada en la sección Gabinete Robot el 29/09/2025.
-
+En esta seccion la idea es describir la programación del plc, el mecanismo de la puerta, el actuador (un nema 17) el driver
+Conexiones
 ## Captura y conducción del material
 Describe cómo el robot captura y conduce los residuos hacia el sistema de clasificación.
 
