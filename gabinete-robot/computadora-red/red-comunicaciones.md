@@ -2,7 +2,7 @@
 title: Red de comunicaciones
 layout: default
 parent: Conexiones eléctricas y red de comunicaciones
-nav_order: 1
+nav_order: 2
 ---
 
 ## 2. Red de comunicaciones
