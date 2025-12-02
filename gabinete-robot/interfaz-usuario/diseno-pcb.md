@@ -11,77 +11,121 @@ Esta placa es el “cerebro embebido” : **lee tarjetas RFID**, **se comunica p
 ---
 
 ## Vistas de la PCB
-![PCB real]({{ "/assets/img/PCB-real.jpg" | relative_url }})
-![Diagrama esquemático de la PCB]({{ "/assets/img/PCB_diagrama_esquema.jpg" | relative_url }})
-![Distribución de componentes en la PCB]({{ "/assets/img/PCB_placa_esquema.jpg" | relative_url }})
-![Modelo 3D de la PCB]({{ "/assets/img/PCB_placa_esquema_3D.jpg" | relative_url }})
+
+La tarjeta está basada en un **ESP32-WROOM-32** y actúa como placa base para pruebas de firmware con entradas digitales, salidas (LEDs y buzzer) y un conector de expansión para periféricos externos.  
+El programador USB–Serial se mantiene como módulo aparte para mantener la tarjeta sencilla y reutilizable.
+
+![PCB ensamblada con programador USB-Serial](img/pcb_ensamble.jpg)
+
+En la fotografía se aprecia:
+
+- El **módulo ESP32** en la parte superior izquierda.
+- Tres **botones** (S1, S2, S3) en la zona central:
+  - S1 – `EN` (reset del ESP32).
+  - S2 – `BOOT` (modo de programación).
+  - S3 – botón de usuario.
+- El **LED de estado** cerca del borde inferior, útil para pruebas rápidas.
+- El **buzzer** BZ1 en la esquina inferior derecha.
+- El adaptador **USB-Serial** conectado al header inferior, que proporciona alimentación y líneas TX/RX.
 
 ---
 
-## Bloques de hardware
-1) **ESP32 (zona superior-izquierda)**  
-   - Mantener *keep-out* bajo la antena (sin cobre ni tornillería) para no degradar Wi-Fi/BLE.  
-   - Pines de arranque: **EN** (reset) y **BOOT** (GPIO0) accesibles; LED(s) de estado para flashing.
+## Esquemático eléctrico
 
-2) **RC522 por SPI**  
-   - Líneas: **SCK**, **MOSI**, **MISO**, **SS/SDA**, **RST** rutadas en paralelo y lo más cortas posible.  
-   - Antena del RC522 despejada de metal (y de planos de cobre) para mejor lectura.
+El esquemático se divide en bloques funcionales: ESP32, lógica de reset/boot, indicadores y conectores de expansión.
 
-3) **USB-UART TTL**  
-   - Conector de **4 pines**: **TX**, **RX**, **VCC**, **GND** para programación/monitor.  
-   - Señales UART encaminadas al borde para acceso cómodo.
+![Esquemático principal de la tarjeta](img/pcb_schematic.png)
 
-4) **Buzzer**  
-   - Ubicado en esquina **inferior-derecha**; alimentado a **3.3 V** con limitación.  
-   - Aislado del bus SPI para evitar acople de ruido.
+### Bloque ESP32
+
+El bloque principal es el módulo **ESP32-WROOM-32 (U1)**:
+
+- Pines de alimentación **3.3 V** y **GND** con capacitores de desacoplo cercanos (C1, C2, etc.).
+- Pines de IO asignados a:
+  - LEDs (por ejemplo `GPIO2`, `GPIO17`).
+  - Buzzer.
+  - Bus SPI/I²C expuesto en el conector de expansión J3.
+- Las líneas UART (`TXD0`/`RXD0`) se llevan al conector de programación J1.
+
+### Botones de EN, BOOT y usuario
+
+En la parte superior del esquemático está la red de resistencias y botones:
+
+- **S1 – EN**: resetea el ESP32.  
+  - Resistencia pull-up mantiene `EN` en alto y el botón lo lleva a GND.
+- **S2 – BOOT**: fuerza el modo de programación al mantenerlo presionado durante el reset.
+- **S3 – SW1**: botón de propósito general conectado a un GPIO, con su correspondiente red de resistencias.
+
+Esto permite flashear el ESP32 manualmente sin depender de auto-reset por hardware.
+
+### Indicadores LED
+
+![Bloque de LEDs e indicadores](img/pcb_leds.png)
+
+El esquema incluye al menos dos LEDs (D1 y D2) con sus resistencias en serie:
+
+- Uno se usa como **LED de alimentación/estado**.
+- El otro puede quedar para depuración de firmware (parpadeos, errores, etc.).
+
+Ambos están conectados a GPIOs configurables desde software.
+
+### Conectores de expansión y buzzer
+
+![Conectores y buzzer](img/pcb_connectors_buzzer.png)
+
+- **J1 (UART)**: conector de 4 pines para el adaptador USB-Serial  
+  (TX, RX, VCC y GND).  
+- **J2**: conector de 3 pines (por ejemplo VDD, señal, GND) pensado para algún sensor simple o entrada digital.
+- **J3 (header de 8 pines)**: expone:
+  - VDD y GND.
+  - Líneas **RST** y varios GPIOs.
+  - Bus **SPI/I²C** (MISO, MOSI, SCK, SDA) para conectar displays, sensores o módulos externos.
+- **BZ1 + R12**: salida para **buzzer**, con resistencia limitadora/driver. Ideal para feedback acústico (beeps de error, confirmación, etc.).
+
+---
+
+## Diseño de la PCB (layout)
+
+El diseño se realizó en una PCB de **dos capas**, con plano de referencia mayormente en la capa inferior y ruteo de señales en la superior.
+
+![Layout de la PCB con plano de cobre](img/pcb_layout.png)
+
+Aspectos importantes del layout:
+
+- Se respetó una **zona de keep-out** bajo la antena del ESP32 para no degradar la señal RF:
+  - Sin cobre ni pistas.
+  - Sin componentes metálicos en esa región.
+- El ruteo principal de señales del ESP32 sale hacia el centro de la placa y luego se distribuye hacia:
+  - Los botones de EN/BOOT.
+  - El header de programación.
+  - El conector de expansión J3.
+- Se usan pistas relativamente anchas para alimentación y pistas estándar para señales digitales.
+- Hay **vias de retorno a GND** distribuidas para reducir la inductancia de la malla de tierra.
 
 ---
 
-## Conectividad y pinout de referencia
+## Vista 3D y ensamblaje
 
-**Alimentación**
-- **VDD = 3.3 V** para toda la placa (ESP32, RC522 y buzzer).
+La vista 3D permite verificar la colocación física de los componentes y la ergonomía de los botones y conectores.
 
-**UART0 – Programación**
-- **Pin 1:** GND  
-- **Pin 2:** VDD (3.3 V)  
-- **Pin 3:** TX0 (ESP32 → PC) — GPIO1  
-- **Pin 4:** RX0 (PC → ESP32) — GPIO3
+![Vista 3D de la PCB con keep-out de antena](img/pcb_3d.png)
 
-**SPI – Lector RC522 (J3, 8 pines)**
+En este render se observa:
 
-| Señal RC522 | GPIO ESP32 | Nota          |
-|-------------|------------|---------------|
-| VDD         |            | 3.3 V         |
-| RST         | GPIO21     | Reset RC522   |
-| MISO        | GPIO19     | VSPI MISO     |
-| MOSI        | GPIO23     | VSPI MOSI     |
-| SCK         | GPIO18     | VSPI SCK      |
-| SDA / SS    | GPIO5      | Chip select   |
-| GND         |            | Plano de masa |
-
-**Botones**
-- **EN (EN)** y **BOOT (GPIO0)** accesibles para modo de carga.  
-- **SW1 de usuario** en **GPIO16** (entrada con pull-up a VDD).
-
-**Indicadores**
-- **LED1** en **GPIO2**.  
-- **LED2** en **GPIO17**.
-
-**Actuador**
-- **Buzzer** en net **BUZZ → GPIO22** (a través de R12, retorno a GND).
-
+- El **módulo ESP32** con la antena apuntando hacia la parte superior, con la etiqueta **KEEP-OUT ZONE** claramente marcada.
+- Ubicación accesible de:
+  - Botones S1, S2, S3.
+  - Header inferior para el programador USB-Serial.
+  - Buzzer en la esquina, evitando interferencias mecánicas con otros módulos.
+- **Orificios de montaje** en las esquinas para fijar la tarjeta dentro de una caja o prototipo.
 
 ---
-## Consideraciones de diseño y montaje
-- Placa de una capa con plano de masa envolvente para minimizar ruido.
-- Cuatro orificios de fijación en las esquinas para asegurar al gabinete y reducir vibración.
-- Huellas de resistencias y capacitores en tamaño 1206 para facilitar soldadura manual.
-- Área bajo la antena del ESP32 sin cobre ni tornillería, evitando degradar el enlace inalámbrico.
+
+## Posibles mejoras para la siguiente revisión
+
+- Añadir una **serigrafía más descriptiva** en los conectores (por ejemplo, etiquetar pines de J3: `VDD`, `GND`, `MISO`, `MOSI`, etc.).
+- Incluir **pads de test** para señales críticas (TX/RX, 3.3 V, GND, alguna línea de debug).
+- Considerar un pequeño **fusible resettable (PTC)** o protección adicional en la entrada de alimentación.
+- Dejar un borde libre cerca del conector de programación para que el adaptador USB-Serial no choque con otros elementos mecánicos.
 
 ---
-## Fabricación
-La PCB fue mandada a manofacturar a los laboratorios de JLCPCB: [Descargar archivos Gerber]( {{ "assets/documentos/ESP32_Finaaaaal.zip" | relative_url }} ){: .btn .btn-primary }
-
-
-![PCB ordenada]({{ "/assets/img/PCB_JLCPCB.jpg" | relative_url }})
