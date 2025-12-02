@@ -10,36 +10,6 @@ Esta placa es el “cerebro embebido” : **lee tarjetas RFID**, **se comunica p
 
 ---
 
-## Esquematico
-
-![Diagrama esquemático de la PCB]({{ "/assets/img/PCB_diagrama_esquema.jpg" | relative_url }})
-Diseño esquemático de la placa, donde se muestran las conexiones internas entre el ESP32, los botones de arranque, los LEDs, el buzzer, los conectores hacia el lector RC522 y la interfaz USB-UART. Algunas resistencias son de **0 Ω** y se usan únicamente como puentes para cruzar pistas en el PCB, sin modificar el comportamiento eléctrico del circuito.
-
-
----
-
-## Distribución y ruteo en la PCB
-
-![Distribución de componentes en la PCB]({{ "/assets/img/PCB_placa_esquema.jpg" | relative_url }})
-Vista del ruteo de la PCB: se muestran las pistas que interconectan todos los componentes, trabajando prácticamente como una placa de **una sola capa** (todas las pistas van en la misma cara), salvo una única conexión que se llevó a la otra capa. En la parte superior se aprecia también el área de *keep-out* bajo la antena del ESP32.
-
-
----
-
-## Vistas de la PCB
-
-![PCB real]({{ "/assets/img/PCB-real.jpg" | relative_url }})
-Vista de la PCB real ensamblada, con el módulo ESP32, botones, LED de estado y buzzer montados.
-
-
-![Distribución de componentes en la PCB]({{ "/assets/img/PCB_placa_esquema.jpg" | relative_url }})
-Distribución de componentes en la tarjeta, destacando las zonas de lógica, conectores y el área de keep-out bajo la antena del ESP32.
-
-![Modelo 3D de la PCB]({{ "/assets/img/PCB_placa_esquema_3D.jpg" | relative_url }})
-Modelo 3D de la PCB, útil para revisar interferencias mecánicas y la accesibilidad de conectores y botones.
-
----
-
 ## Bloques de hardware
 1) **ESP32 (zona superior-izquierda)**  
    - Mantener *keep-out* bajo la antena (sin cobre ni tornillería) para no degradar Wi-Fi/BLE.  
@@ -95,6 +65,27 @@ Modelo 3D de la PCB, útil para revisar interferencias mecánicas y la accesibil
 
 ---
 
+## Esquematico
+
+![Diagrama esquemático de la PCB]({{ "/assets/img/PCB_diagrama_esquema.jpg" | relative_url }})
+Diseño esquemático de la placa, donde se muestran las conexiones internas entre el ESP32, los botones de arranque, los LEDs, el buzzer, los conectores hacia el lector RC522 y la interfaz USB-UART. Algunas resistencias son de **0 Ω** y se usan únicamente como puentes para cruzar pistas en el PCB, sin modificar el comportamiento eléctrico del circuito.
+
+---
+
+## Distribución y ruteo en la PCB
+
+![Distribución de componentes en la PCB]({{ "/assets/img/PCB_placa_esquema.jpg" | relative_url }})
+Vista del ruteo de la PCB: se muestran las pistas que interconectan todos los componentes, trabajando prácticamente como una placa de **una sola capa** (todas las pistas van en la misma cara), salvo una única conexión que se llevó a la otra capa. En la parte superior se aprecia también el área de *keep-out* bajo la antena del ESP32.
+
+---
+
+## Modelo 3D
+
+![Modelo 3D de la PCB]({{ "/assets/img/PCB_placa_esquema_3D.jpg" | relative_url }})
+Modelo 3D de la misma PCB: una vista más realista del ruteo anterior, con los componentes montados (ESP32, conectores, resistencias, buzzer), útil para visualizar el ensamblaje final y detectar posibles interferencias mecánicas.
+
+---
+
 ## Consideraciones de diseño y montaje
 - Placa de una capa con plano de masa envolvente para minimizar ruido.
 - Cuatro orificios de fijación en las esquinas para asegurar al gabinete y reducir vibración.
@@ -104,6 +95,14 @@ Modelo 3D de la PCB, útil para revisar interferencias mecánicas y la accesibil
 ---
 
 ## Fabricación
-La PCB fue mandada a manofacturar a los laboratorios de JLCPCB: [Descargar archivos Gerber]( {{ "assets/documentos/ESP32_Finaaaaal.zip" | relative_url }} ){: .btn .btn-primary }
-
+La PCB fue mandada a manofacturar a los laboratorios de JLCPCB: 
 ![PCB ordenada]({{ "/assets/img/PCB_JLCPCB.jpg" | relative_url }})
+[Descargar archivos Gerber]( {{ "assets/documentos/ESP32_Finaaaaal.zip" | relative_url }} ){: .btn .btn-primary }
+
+---
+
+## Ensamble
+![PCB real]({{ "/assets/img/PCB-real.jpg" | relative_url }})
+Vista de la PCB real ensamblada, con el módulo ESP32, botones, LED de estado y buzzer montados.
+
+---
