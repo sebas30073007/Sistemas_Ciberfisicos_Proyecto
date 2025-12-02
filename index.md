@@ -37,18 +37,21 @@ El diagrama de topología muestra cómo los servicios en la nube (Firebase, Rend
 
 ### Tabla de descripción del sistema
 
-| Categoría | Descripción |
-|----------|-------------|
-| **Gabinete del robot – Red y comunicaciones** | Un router provee al sistema de conexión a Internet. Aparte los diversos módulos del gabinete usan protocolos SPI, Serial, HDMI, Ethernet para interactuar entre ellos o con el procesador central. |
-| **Gabinete del robot – Control general** | Una PC dedicada coordina las operaciones del robot, inputs del HMI y comunicación con la nube, así como accionar secuencias lógicas (procesos pre-establecidos de funcionamiento). |
-| **Gabinete del robot – Interfaz de Usuario** | Identifica al usuario mediante tarjeta (ID único), muestra instrucciones e indicaciones. |
-| **Gabinete del robot – Recepción de residuos** | Contiene los componentes industriales y robustos de sensado y verificación de aceptación de residuos "permitidos". |
-| **Gabinete del robot – Robot** | Manipulador UR3 que recolecta y clasifica residuos con ayuda de un modelo de detección por visión artificial. |
-| **Nube y servicios – APIs en Python** | Reciben imágenes y eventos, orquestan la clasificación y exponen datos a otras aplicaciones. |
-| **Nube y servicios – Motor de IA** | Se ejecuta en la nube. |
-| **Nube y servicios – Base de datos y almacenamiento** | Conserva usuarios, sesiones, vínculos a evidencias fotográficas y métricas de cada ciclo. |
-| **Nube y servicios – Dashboards web/móvil** | Muestran KPIs, ranking y tablas de puntos para seguimiento operativo y gamificación. |
-| **Interfaces de usuario – HMI local** | Guía al usuario durante el depósito, muestra instrucciones, confirma resultados y reproduce mensajes de audio. |
-| **Interfaces de usuario – Sitio web / app** | Permite revisar el ranking global, el historial personal y las reglas de premiación cuando estén disponibles. |
+### Tabla de descripción del sistema
+
+| Categoría | Función dentro del sistema |
+|----------|-----------------------------|
+| **Gabinete del robot – Red y comunicaciones** | El router da acceso a Internet y conecta todos los módulos internos. Dentro del gabinete se usan protocolos como SPI, Serial, HDMI y Ethernet para la comunicación entre sensores, actuadores y el procesador central. |
+| **Gabinete del robot – Control general** | Una PC dedicada coordina el funcionamiento completo del robot: procesa entradas del HMI, ejecuta lógica de operación, controla secuencias y mantiene comunicación con la nube. |
+| **Gabinete del robot – Interfaz de Usuario** | Identifica al usuario mediante una tarjeta RFID (ID único) y muestra instrucciones e indicaciones durante el proceso. |
+| **Gabinete del robot – Recepción de residuos** | Incluye los sensores y mecanismos industriales que detectan, validan y verifican si un residuo es aceptable para el sistema. |
+| **Gabinete del robot – Robot** | El brazo UR3 realiza la recolección y clasificación de residuos utilizando un modelo de visión artificial para reconocer objetos. |
+| **Nube y servicios – APIs en Python** | Reciben imágenes y eventos desde el robot, coordinan la clasificación y exponen información para otros servicios. |
+| **Nube y servicios – Motor de IA** | Procesa modelos de visión artificial y clasificación en la nube. |
+| **Nube y servicios – Base de datos y almacenamiento** | Guarda usuarios, sesiones, evidencia fotográfica y métricas operativas de cada ciclo del sistema. |
+| **Nube y servicios – Dashboards web/móvil** | Presentan KPIs, rankings, métricas y puntos para monitoreo operativo y gamificación. |
+| **Interfaces de usuario – HMI local** | Acompaña al usuario durante el depósito del residuo: muestra instrucciones, confirma resultados y reproduce mensajes de audio. |
+| **Interfaces de usuario – Sitio web / App** | Permite consultar ranking global, historial personal y reglas de premiación cuando estén disponibles. |
+
 
 ---
