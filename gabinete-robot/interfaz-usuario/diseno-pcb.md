@@ -10,13 +10,27 @@ Esta placa es el “cerebro embebido” : **lee tarjetas RFID**, **se comunica p
 
 ---
 
+## Esquematico
+
+![Diagrama esquemático de la PCB]({{ "/assets/img/PCB_diagrama_esquema.jpg" | relative_url }})
+Diseño esquemático de la placa, donde se muestran las conexiones internas entre el ESP32, los botones de arranque, los LEDs, el buzzer, los conectores hacia el lector RC522 y la interfaz USB-UART. Algunas resistencias son de **0 Ω** y se usan únicamente como puentes para cruzar pistas en el PCB, sin modificar el comportamiento eléctrico del circuito.
+
+
+---
+
+## Distribución y ruteo en la PCB
+
+![Distribución de componentes en la PCB]({{ "/assets/img/PCB_placa_esquema.jpg" | relative_url }})
+Vista del ruteo de la PCB: se muestran las pistas que interconectan todos los componentes, trabajando prácticamente como una placa de **una sola capa** (todas las pistas van en la misma cara), salvo una única conexión que se llevó a la otra capa. En la parte superior se aprecia también el área de *keep-out* bajo la antena del ESP32.
+
+
+---
+
 ## Vistas de la PCB
 
 ![PCB real]({{ "/assets/img/PCB-real.jpg" | relative_url }})
 Vista de la PCB real ensamblada, con el módulo ESP32, botones, LED de estado y buzzer montados.
 
-![Diagrama esquemático de la PCB]({{ "/assets/img/PCB_diagrama_esquema.jpg" | relative_url }})
-Diagrama esquemático de la placa, donde se aprecian las conexiones del ESP32, el lector RC522, el buzzer y el interfaz USB-UART.
 
 ![Distribución de componentes en la PCB]({{ "/assets/img/PCB_placa_esquema.jpg" | relative_url }})
 Distribución de componentes en la tarjeta, destacando las zonas de lógica, conectores y el área de keep-out bajo la antena del ESP32.
