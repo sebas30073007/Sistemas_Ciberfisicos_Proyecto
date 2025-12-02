@@ -1,5 +1,5 @@
 ---
-title: Base de datos (Firebase)
+title: Base de datos
 layout: default
 parent: Nube
 nav_order: 1

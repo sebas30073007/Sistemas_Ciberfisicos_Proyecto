@@ -1,5 +1,5 @@
 ---
-title: APIs (conteos, guardar imagen, convertir imagen)
+title: APIs
 layout: default
 parent: Nube
 nav_order: 2

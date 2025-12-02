@@ -1,5 +1,5 @@
 ---
-title: Dashboards (web y móvil)
+title: Applicación web
 layout: default
 parent: Nube
 nav_order: 3
@@ -7,12 +7,16 @@ redirect_from:
   - /ui/monitoreo-tiempo-real/
 ---
 
-> Esta página fue reubicada en la sección Nube el 29/09/2025.
+# Aplicación web
 
-Explica los elementos gráficos utilizados para supervisar el desempeño del robot.
+En esta sección se describe la **página web pública** del proyecto, donde cualquier persona que haya participado en la campaña de recolección puede consultar sus resultados y el estado general del sistema.
 
-- Telemetría de motores, consumo de energía y temperatura.
-- Alertas o notificaciones cuando se detectan anomalías.
-- Visualización del progreso de clasificación por tipo de residuo.
+La web está disponible en:
 
-Sugiere la frecuencia de actualización recomendada y mecanismos de registro histórico.
+👉 [Panel público de Recicla UR](https://danyrct.github.io/recicla_ur/)
+
+---
+
+
+
+## Diagrama a bloques del 
