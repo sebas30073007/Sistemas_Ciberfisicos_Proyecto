@@ -15,30 +15,20 @@ El gabinete del robot integra la infraestructura física, el cableado y los subs
 
 ---
 
-
 ![Estructura]({{ "/assets/img/Gabinete_robot.jpg" | relative_url }})
 
 ## ¿Qué encontrarás en esta sección?
+### Contenido de esta sección
 
-1. **Arquitectura general del gabinete**
-   - Distribución física de los módulos: interfaz de usuario, recepción de residuos y célula robótica.
+| Sección | Descripción |
+|--------|-------------|
+| **Arquitectura general del gabinete** | Distribución física de los módulos: interfaz de usuario, recepción de residuos y célula robótica. |
+| **Interfaz de usuario en el gabinete** | - Lector RFID (RC522), microcontrolador ESP32 y convertidor TTL-Serial.<br>- HMI táctil basada en Raspberry Pi y descripción de la experiencia del usuario al depositar residuos. |
+| **Módulo de recepción de residuos** | - PLC Siemens LOGO! y señales de entrada/salida relevantes.<br>- Puerta automática con actuador lineal y su coordinación con el resto del sistema. |
+| **Módulo robótico** | - Microprocesador del robot (Raspberry Pi).<br>- Cámara de profundidad utilizada para la clasificación.<br>- Brazo robótico UR3 y gripper de mano robótica suave. |
+| **Red de comunicaciones y cómputo** | - Topología de la red local: PC central y switch Ethernet.<br>- Conexiones USB y serial que enlazan los diferentes microprocesadores y módulos de control. |
 
-2. **Interfaz de usuario en el gabinete**
-   - Lector de tarjetas RFID (RC522), microcontrolador ESP32 y convertidor TTL–Serial.
-   - HMI táctil basada en Raspberry Pi y descripción de la experiencia de la persona que deposita residuos.
-
-3. **Módulo de recepción de residuos**
-   - PLC Siemens LOGO! y señales de entrada/salida relevantes.
-   - Puerta automática con actuador lineal y su coordinación con el resto del sistema.
-
-4. **Módulo robótico**
-   - Microprocesador del robot (Raspberry Pi).
-   - Cámara de profundidad utilizada para la clasificación.
-   - Brazo robótico UR3 y gripper de mano robótica suave.
-
-5. **Red de comunicaciones y cómputo**
-   - Topología de la red local: PC central y switch Ethernet.
-   - Conexiones USB y serial que enlazan los diferentes microprocesadores y módulos de control.
+---
 
 
 ## Convenciones y alcance
