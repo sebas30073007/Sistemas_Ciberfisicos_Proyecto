@@ -63,13 +63,7 @@ pip install requests flask python-snap7
 
 ---
 
-### Pruebas rápidas de comunicación
-
-A continuación se muestran fragmentos de código pensados para **probar la comunicación** con cada dispositivo de forma aislada.  
-
----
-
-#### PLC S7-1200 (Snap7)
+### Pruebas de comunicación PLC S7-1200 (Snap7)
 
 Ejemplo mínimo para **enviar un comando** (bit de abrir/cerrar puerta) y **leer el estado** del byte M0:
 
@@ -120,7 +114,7 @@ if __name__ == "__main__":
 
 ---
 
-#### Robot UR3 (Dashboard API)
+### Pruebas de comunicación Robot UR3 (Dashboard API)
 
 Prueba rápida para **mandar al UR3 a home** y luego **ejecutar una rutina** completa:
 
