@@ -18,8 +18,6 @@ El gabinete del robot integra la infraestructura física, el cableado y los subs
 ![Estructura]({{ "/assets/img/Gabinete_robot.jpg" | relative_url }})
 
 ## ¿Qué encontrarás en esta sección?
-### Contenido de esta sección
-
 | Sección | Descripción |
 |--------|-------------|
 | **Arquitectura general del gabinete** | Distribución física de los módulos: interfaz de usuario, recepción de residuos y célula robótica. |
