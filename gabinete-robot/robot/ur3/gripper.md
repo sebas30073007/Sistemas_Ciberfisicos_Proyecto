@@ -23,7 +23,7 @@ El sistema utiliza la **OnRobot Compute Box** (conocida comúnmente como "EyeBox
 
 Una vez realizadas las conexiones físicas, el dispositivo se da de alta en la interfaz del UR3:
 
-1.  Ir a la pestaña **Instalación** $\rightarrow$ **Configuración de OnRobot**.
+1.  Ir a la pestaña **Instalación → Configuración de OnRobot**.
 2.  Seleccionar el submenú **Información del dispositivo**.
 3.  Elegir **SG Soft Gripper** de la lista.
 4.  Presionar el botón para habilitar el control desde el robot.
@@ -36,15 +36,30 @@ El comando identificado y utilizado es `sg_grip`.
 
 ### Sintaxis del comando
 
-```python
+{% raw %}
+~~~python
 sg_grip(width, force, ???, grip_detect, ???)
+~~~
+{% endraw %}
 
 En la práctica, utilizamos la siguiente configuración para las acciones de abrir y cerrar:
 
-Cerrar (Agarre): sg_grip(30, False, 0, True, False)
+Cerrar (Agarre): 
+
+{% raw %}
+~~~python
+sg_grip(30, False, 0, True, False)
+~~~
+{% endraw %}
 
 El valor 30 indica una anchura cerrada (apriete).
 
-Abrir (Soltar): sg_grip(75, False, 0, True, False)
+Abrir (Soltar): 
+
+{% raw %}
+~~~python
+sg_grip(75, False, 0, True, False)
+~~~
+{% endraw %}
 
 El valor 75 indica la anchura de apertura para soltar el objeto, como se observa en el script de depositar.
