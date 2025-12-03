@@ -35,13 +35,6 @@ Para integrar el gripper en los scripts de reciclaje del UR3 (como `rutRecolecci
 El comando identificado y utilizado es `sg_grip`.
 
 ### Sintaxis del comando
-
-{% raw %}
-~~~python
-sg_grip(width, force, ???, grip_detect, ???)
-~~~
-{% endraw %}
-
 En la práctica, utilizamos la siguiente configuración para las acciones de abrir y cerrar:
 
 Cerrar (Agarre): 
