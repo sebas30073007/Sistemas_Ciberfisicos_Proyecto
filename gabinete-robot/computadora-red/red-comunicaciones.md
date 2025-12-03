@@ -8,6 +8,9 @@ nav_order: 2
 ## 2. Red de comunicaciones
 
 Esta sección describe cómo se comunican los dispositivos a nivel de red y software.
+![Diagrama de topología y jerarquia]({{ "/assets/img/Diagrama-topologia.jpg" | relative_url }})
+
+---
 
 ### 2.1 Topología física
 
@@ -148,7 +151,7 @@ Se asume que en el UR3 existen los programas `rutHome.urp` y `rutObservacion.urp
 
 ---
 
-#### Raspberry de visión (`/identify`)
+### Pruebas de comunicación Raspberry de visión
 
 Ejemplo mínimo para **invocar el servicio de visión** y leer el objeto detectado:
 
@@ -179,7 +182,7 @@ donde la etiqueta puede ser, por ejemplo, `"lata"`, `"tetra"`, `"vidrio"` o `"bg
 
 ---
 
-### Visión general del orquestador
+## Visión general del orquestador
 
 En el sistema completo, la Jetson Nano no ejecuta estos scripts por separado, sino que corre un **orquestador** que:
 
