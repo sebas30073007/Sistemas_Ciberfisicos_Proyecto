@@ -16,7 +16,7 @@ En esta sección se describe **cómo se recibe el residuo en el gabinete**, cent
 
 ## 1. Lógica del PLC para el motor de la puerta
 
-![Diagrama en escalera del PLC]({{ "/assets/img/Diagrama-PLC.jpg" | relative_url }})
+![Diagrama en escalera del PLC]({{ "/assets/img/diagrama_stepper.jpg" | relative_url }})
 
 El PLC Siemens ejecuta un pequeño programa en escalera encargado de **generar los pulsos de movimiento** para el motor a pasos que abre y cierra la puerta de recepción. La idea es convertir una orden sencilla (“abrir puerta”) en una secuencia de pulsos con dirección definida.
 
@@ -28,7 +28,7 @@ El movimiento real de la puerta se logra con:
 
 - Un **motor a pasos NEMA 17**, montado en el gabinete.  
 - Un **driver de micro-pasos DC 9–42 V**.  
-- Un mecanismo de transmisión mecánica (por ejemplo, **husillo roscado, cremallera o sistema correa-polea**) que convierte el giro del eje del motor en **movimiento lineal de la puerta**.
+- Un mecanismo de transmisión mecánica (**correa-polea**) que convierte el giro del eje del motor en **movimiento lineal de la puerta**.
 
 ### 2.1 Señales que llegan al driver
 
@@ -56,22 +56,16 @@ Los parámetros de micro-paso y corriente del driver se ajustan en sus DIP-switc
 
 ![Teach Pendant del UR3 con secuencia de recepción]({{ "/assets/img/teachPendant.jpg" | relative_url }})
 
-El robot UR3 ejecuta un programa específico para la **recepción de residuos**, escrito en URScript y cargado desde el teach pendant. En la pantalla se aprecia una lista de instrucciones:
-
-- Movimientos `movej()` y `movel()` hacia puntos predefinidos (P4, P5, P6, etc.) que corresponden a:
-  - Posición de espera.  
-  - Posición sobre la puerta.  
-  - Posición de depósito del residuo.  
-
-- Comandos al **gripper** (por ejemplo `sg_grip()`) para:
-  - **Abrir la garra** y dejar caer el residuo en la tolva o bandeja de recepción.  
-  - **Cerrar la garra** antes de retirarse o cuando toma un nuevo objeto.
+El robot UR3 ejecuta un programa específico para la **recepción de residuos**, escrito en URScript y cargado desde el teach pendant. Con movimientos `movej()` hacia puntos predefinidos (P4, P5, P6, etc.) tenemos:
+  - Posición de HOME.  
+  - Posición sobre la puerta. 
 
 La secuencia típica es:
 
-1. El PLC posiciona la puerta en el estado requerido (abierta o cerrada) usando el NEMA 17.  
-2. El UR3 ejecuta el programa de recepción: se mueve a la posición adecuada y actúa sobre el gripper.  
-3. Una vez depositado el residuo, el robot regresa a una posición segura y la puerta puede volver a su estado inicial.
+1. El UR3 se manda a una posicion de HOME.
+2. El PLC abre la puerta usando el NEMA 17.  
+3. El UR3 ejecuta el programa de posición-observación, situandose sobre la puerta.
+4. Se ejecuta el modelo de clasificación.
 
 Toda la lógica de seguridad y el enclavamiento eléctrico (paros, relé, corte de potencia) se mantiene independiente y fue descrita en la sección de **Conexiones industriales y de potencia**; aquí únicamente se detalla la **parte mecánica y de programación asociada a la recepción de residuos**.
 

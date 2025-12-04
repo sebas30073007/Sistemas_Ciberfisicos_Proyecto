@@ -35,5 +35,3 @@ Este flujo permite mantener la operación autónoma, al tiempo que habilita un m
 
 - Revisa el **[diseño de la PCB del módulo RFID](./interfaz-usuario/diseno-pcb.html)** para conocer la distribución de componentes, el ruteo y la lógica de validación.
 - Explora la página de la **[interfaz HMI](./interfaz-usuario/hmi.html)** para ver capturas de la aplicación, dependencias de software y pautas de despliegue.
-
-Cada subpágina incluye diagramas, listas de materiales y notas de implementación que complementan este resumen de alto nivel.
