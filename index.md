@@ -13,6 +13,7 @@ Cada sección incluye un índice con enlaces a subsecciones específicas.
 [![Video demostrativo](https://img.youtube.com/vi/4pZCZ6m2o4M/0.jpg)](https://youtu.be/4pZCZ6m2o4M)
 
 
+
 ---
 
 ## Estado del proyecto
