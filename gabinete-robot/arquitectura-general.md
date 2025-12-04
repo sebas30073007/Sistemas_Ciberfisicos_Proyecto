@@ -41,7 +41,7 @@ En la parte posterior de la estructura (detrás del UR3), se incorporaron 3 cont
 ### C. Módulo de Pantalla 
 En la parte posterior y arriba de los botes, se instalo una pantalla de 50", para lo que fueron necesarios 2 soleras de soporte y añadir aun más refuersos a la estructura.
 * **Solera TV:** Dos soleras de 1000 mm con barrenos centrados y distanciados por 440 mm. 
-* **Refuerzo Estructural 2:** En la zona de los bots, se agregaron 2 patas que terminan en llantas para dar rigidez al sistema.
+* **Refuerzo Estructural 2:** En la zona de los botes, se agregaron 2 patas que terminan en llantas para dar rigidez al sistema.
 
 ![Dimenciones UR3]({{ "/assets/img/soportes.jpg" | relative_url }})
 ---
@@ -50,9 +50,10 @@ En la parte posterior y arriba de los botes, se instalo una pantalla de 50", par
 
 ### A. Zona de Depósito y Compuerta
 * **Compuerta:** abertura de 170 mm X 330 mm.
-* **Mecanismo de Compuerta:** Accionamiento de una puerta deslizable de apertura y cierre basado en un sistema de **banda y rueda V-slot 40x40** impulsado por un motor a pasos, en disposición horizontal.
+* **Mecanismo de Compuerta:** Accionamiento de una puerta deslizable de apertura y cierre basado en un sistema de **banda y rueda V-slot 40x40** impulsado por un motor a pasos, en apertura horizontal.
 
 ![Dimenciones UR3]({{ "/assets/img/puerta.jpg" | relative_url }})
+[Descargar archivos DXF]( {{ "assets/documentos/Recepcion.zip" | relative_url }} ){: .btn .btn-primary }
 
 ### B. Panel de Visualización (HMI y TV)
 * **HMI (7 Pulgadas):** 
@@ -60,13 +61,16 @@ En la parte posterior y arriba de los botes, se instalo una pantalla de 50", par
     2. Montaje usando piezas impresas en PLA y cortadas de acrilico para proporcionar una inclinación a -45° y sea comodo para los usuarios.
 
 ![Dimenciones UR3]({{ "/assets/img/UI.jpg" | relative_url }})
+[Descargar archivos DXF y STL]( {{ "assets/documentos/HMI.zip" | relative_url }} ){: .btn .btn-primary }
 
 ### C. Paneles Internos y Revestimiento
 * **Separador Central:** Una placa interna de acrilico recubierta con vinil negro, ubicada al centro de la estructura.
 * **Recubrimiento:**
     * **Acrílico de 3 mm:** Cara **frontal**.
     * **Láminas de PVC:** Parte **Fronal inferior**.
+[Descargar archivo DXF]( {{ "assets/documentos/PVC_placa_inferior.dxf" | relative_url }} ){: .btn .btn-primary }
 
 ### D. Panel elctrico
 * **Ubicación:** En la parte frontal inferior del gabinete
 * **Diseño:** Se contempla una abertura para facilitar la visibilidad y el acceso.
+[Descargar archivo IPT]( {{ "assets/documentos/panle_electrico.ipt" | relative_url }} ){: .btn .btn-primary }

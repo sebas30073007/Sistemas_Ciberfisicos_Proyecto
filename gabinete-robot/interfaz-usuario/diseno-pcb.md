@@ -97,7 +97,7 @@ Modelo 3D de la misma PCB: una vista más realista del ruteo anterior, con los c
 ## Fabricación
 La PCB fue mandada a manofacturar a los laboratorios de JLCPCB: 
 ![PCB ordenada]({{ "/assets/img/PCB_JLCPCB.jpg" | relative_url }})
-[Descargar archivos Gerber]( {{ "assets/documentos/ESP32_Finaaaaal.zip" | relative_url }} ){: .btn .btn-primary }
+[Descargar archivos Gerber]( {{ "assets/documentos/ESP32_Kikad_proyect.zip" | relative_url }} ){: .btn .btn-primary }
 
 ---
 

@@ -37,8 +37,6 @@ El diagrama de topología muestra cómo los servicios en la nube (Firebase, Rend
 
 ### Tabla de descripción del sistema
 
-### Tabla de descripción del sistema
-
 | Categoría | Función dentro del sistema |
 |----------|-----------------------------|
 | **Gabinete del robot – Red y comunicaciones** | El router da acceso a Internet y conecta todos los módulos internos. Dentro del gabinete se usan protocolos como SPI, Serial, HDMI y Ethernet para la comunicación entre sensores, actuadores y el procesador central. |
@@ -47,9 +45,7 @@ El diagrama de topología muestra cómo los servicios en la nube (Firebase, Rend
 | **Gabinete del robot – Recepción de residuos** | Incluye los sensores y mecanismos industriales que detectan, validan y verifican si un residuo es aceptable para el sistema. |
 | **Gabinete del robot – Robot** | El brazo UR3 realiza la recolección y clasificación de residuos utilizando un modelo de visión artificial para reconocer objetos. |
 | **Nube y servicios – APIs en Python** | Reciben imágenes y eventos desde el robot, coordinan la clasificación y exponen información para otros servicios. |
-| **Nube y servicios – Motor de IA** | Procesa modelos de visión artificial y clasificación en la nube. |
 | **Nube y servicios – Base de datos y almacenamiento** | Guarda usuarios, sesiones, evidencia fotográfica y métricas operativas de cada ciclo del sistema. |
-| **Nube y servicios – Dashboards web/móvil** | Presentan KPIs, rankings, métricas y puntos para monitoreo operativo y gamificación. |
 | **Interfaces de usuario – HMI local** | Acompaña al usuario durante el depósito del residuo: muestra instrucciones, confirma resultados y reproduce mensajes de audio. |
 | **Interfaces de usuario – Sitio web / App** | Permite consultar ranking global, historial personal y reglas de premiación cuando estén disponibles. |
 
