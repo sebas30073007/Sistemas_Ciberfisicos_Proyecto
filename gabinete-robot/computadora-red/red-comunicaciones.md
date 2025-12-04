@@ -117,7 +117,84 @@ if __name__ == "__main__":
 
 ---
 
-### Pruebas de comunicación Robot UR3 (Dashboard API)
+## Pruebas de comunicación Robot UR3 (URX API)
+
+Ejemplo básico para conectarse al UR3 usando la librería **URX** y mover el robot a un **punto objetivo en espacio articular** mediante `movej`, con verificación de llegada y parámetros seguros para evitar paros protectivos.
+
+{% raw %}
+~~~python
+# urx_move_to_point.py  – Mover UR3 a un punto usando URX (movej)
+import time, logging
+import urx
+
+logging.getLogger("urx").setLevel(logging.ERROR)
+
+HOST = "192.168.1.77"   # IP del robot UR3
+
+# Punto objetivo en espacio articular (ejemplo)
+TARGET_JOINTS = (1.2, -1.8, 2.1, -2.5, -1.3, 1.0)
+
+ACC   = 0.8    # aceleración segura
+VEL   = 0.8    # velocidad moderada
+TOL   = 0.02   # tolerancia en radianes (~1°)
+TMAX  = 20.0   # tiempo máximo de espera
+
+def dist(a, b):
+    """Distancia máxima entre juntas (norma infinito)"""
+    return max(abs(x - y) for x, y in zip(a, b))
+
+def movej_soft(target, acc=ACC, vel=VEL, tol=TOL, tmax=TMAX):
+    rob = urx.Robot(HOST, use_rt=True)
+    try:
+        # Leer juntas iniciales (informativo)
+        try:
+            j0 = rob.getj()
+            print("Juntas actuales:", [round(v, 4) for v in j0])
+        except Exception as e:
+            print("[WARN] No pude leer las juntas al inicio:", e)
+
+        # Lanzar movimiento sin bloquear
+        rob.movej(target, acc=acc, vel=vel, wait=False)
+
+        # Polling manual hasta llegar a tolerancia
+        t0 = time.time()
+        last_ok = time.time()
+        while True:
+            time.sleep(0.05)
+            try:
+                j = rob.getj()
+                if dist(j, target) <= tol:
+                    print("✓ Objetivo alcanzado dentro de tolerancia.")
+                    break
+                last_ok = time.time()
+            except Exception:
+                # falló lectura, reintentamos
+                pass
+
+            if time.time() - t0 > tmax:
+                raise TimeoutError("Timeout esperando que el movimiento termine.")
+
+            if time.time() - last_ok > 3.0:
+                raise RuntimeError("Sin telemetría del robot por >3 s.")
+
+    finally:
+        try:
+            rob.close()
+        except Exception:
+            pass
+
+if __name__ == "__main__":
+    print("Moviendo al punto objetivo...")
+    movej_soft(TARGET_JOINTS)
+    print("Movimiento completado.")
+~~~
+{% endraw %}
+
+Este script se conecta al UR3, valida telemetría, ejecuta el movimiento y confirma que el robot alcanzó la posición deseada dentro de la tolerancia establecida.
+
+---
+
+### Pruebas de comunicación Robot UR3 (ejecución de scripts)
 
 Prueba rápida para **mandar al UR3 a home** y luego **ejecutar una rutina** completa:
 
