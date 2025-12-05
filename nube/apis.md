@@ -144,7 +144,7 @@ FIREBASE_JSON = {
 }
 ```
 {% endraw %}
-La configuración **CORS** es:
+La configuración **CORS** consiste en:
 (% raw %)
 CORS(app, 
      origins="*", 
