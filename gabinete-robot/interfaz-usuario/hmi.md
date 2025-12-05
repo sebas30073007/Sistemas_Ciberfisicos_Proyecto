@@ -44,3 +44,6 @@ Por ultimo el botón de **Reciclar si cuenta** siemplemente dirige al usuario a 
      "rfid": "ID_de_la_tarjeta",
      "usuario": "Nombre_ingresado"
    }
+
+4. **Código completo de Interfaz**
+   ![Código]({{ "/assets/documentos/codigo.py" | relative_url }})
