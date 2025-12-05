@@ -13,7 +13,7 @@ Esta sección reúne los servicios desplegados en la nube: bases de datos, APIs,
 Se centraliza toda la informacion de los componentes fisicos para hacer contacto con la nube a traves del servidor.
 
 **Código completo de Servidor**
-   [📁 Ver código completo de la interfaz](https://github.com/sebas30073007/Sistemas_Ciberfisicos_Proyecto/blob/main/assets/documentos/servidor.py)
+   [📁 Ver código completo del servidor](https://github.com/sebas30073007/Sistemas_Ciberfisicos_Proyecto/blob/main/assets/documentos/servidor.py)
 
 ### **Flujo principal del robot:**
 
