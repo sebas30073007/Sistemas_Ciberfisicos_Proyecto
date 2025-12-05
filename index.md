@@ -10,6 +10,7 @@ redirect_from:
 
 Este proyecto documenta el desarrollo de un robot que identifica vidrio, latas y envases de Tetra Pak para separarlos automáticamente. Aquí encontrarás desarrollado la arquitectura, electrónica, lógica de clasificación y las interfaces de operación.
 Cada sección incluye un índice con enlaces a subsecciones específicas.
+
 [![Video demostrativo](https://img.youtube.com/vi/4pZCZ6m2o4M/0.jpg)](https://youtu.be/4pZCZ6m2o4M)
 
 
