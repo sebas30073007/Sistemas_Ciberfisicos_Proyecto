@@ -53,7 +53,6 @@ Devuelve toda la información asociada al usuario, incluyendo la cantidad de lat
   * `user_id`: Identificador del usuario.
 * **Respuesta (JSON):**
 
-{% raw %}
 ```json
 {
   "user_id": "1234",
@@ -63,7 +62,6 @@ Devuelve toda la información asociada al usuario, incluyendo la cantidad de lat
   "tetra": 15
 }
 ```
-{% endraw %}
 
 ---
 
@@ -84,14 +82,12 @@ Lógica:
 
 * **Respuesta (JSON):**
 
-{% raw %}
 ```json
 {
   "categoria_actualizada": "lata",
   "nuevo_valor": 15
 }
 ```
-{% endraw %}
 ---
 
 ### 4. Rankings (`top_total`), (`top_latas`), (`top_vidrio`), (`top_tetra`)
@@ -102,33 +98,33 @@ Para el caso de top_total muestra los primeros 100 usuarios con mayor puntuació
 ### 5. Errores
 Para los diferentes casos de error hay los siguientes
 `Usuario no encontrado`
-{% raw %}
+
 ```json
 {
   "error": "El usuario con ID '999' no existe"
 }
 ```
-{% endraw %}
+
 `Categoría inválida`
-{% raw %}
+
 ```json
 {
   "error": "Categoría inválida. Usa 'lata', 'vidrio' o 'tetra'."
 }
 ```
-{% endraw %}
+
 `Usuario ya existe`
-{% raw %}
+
 ```json
 {
   "error": "El usuario con ID '001' ya existe"
 }
 ```
-{% endraw %}
+
 ---
 ### 6. Configuración
 Las variables de entorno a utilizar son:
-{% raw %}
+
 ```json
 FIREBASE_JSON = {
   "type": "service_account",
@@ -143,16 +139,16 @@ FIREBASE_JSON = {
   "client_x509_cert_url": "..."
 }
 ```
-{% endraw %}
+
 La configuración **CORS** consiste en:
-(% raw %)
+```json
 CORS(app, 
      origins="*", 
      methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"], 
      allow_headers="*", 
      supports_credentials=True)
 ```
-{% endraw %}
+
 ---
 
 ### 7 Logs
