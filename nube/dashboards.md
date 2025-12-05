@@ -234,7 +234,7 @@ function setStatus(text, kind = "info") {
 ### Configuración de CORS
 La API está configurada para permitir solicitudes desde cualquier origen:
 ```python
-CORS(app, origins="*", methods=["GET", "POST", "OPTIONS"])
+CORS(app, origins="*", methods=["GET", "OPTIONS"])
 ```
 
 ---
@@ -270,7 +270,7 @@ CORS(app, origins="*", methods=["GET", "POST", "OPTIONS"])
    - Carga interfaz responsiva según dispositivo
 
 2. **Consulta personal:**
-   - Ingresa su ID único (ej: código RFID)
+   - Ingresa su ID único (código RFID)
    - Presiona "Consultar"
    - Visualiza sus estadísticas en tarjetas
 
@@ -288,13 +288,6 @@ CORS(app, origins="*", methods=["GET", "POST", "OPTIONS"])
 
 ## Compatibilidad y Requisitos
 
-### Navegadores Soportados
-- Chrome 60+
-- Firefox 55+
-- Safari 11+
-- Edge 79+
-- Opera 50+
-
 ### Requisitos Técnicos
 - **Conexión a Internet:** Para consumo de API
 - **JavaScript habilitado:** Requerido para funcionalidad completa
@@ -304,37 +297,6 @@ CORS(app, origins="*", methods=["GET", "POST", "OPTIONS"])
 - Sin conexión = Sin funcionalidad
 - API puede tener latencia en primera consulta (Render free tier)
 - No hay persistencia local de datos
-
----
-
-## Estadísticas de la Implementación
-
-| Métrica | Valor | Observaciones |
-|---------|-------|---------------|
-| **Tamaño total** | ~15KB | Sin comprimir |
-| **Tiempo de carga** | < 2s | En conexión 4G |
-| **Requests HTTP** | 2-5 | Dependiendo de uso |
-| **Puntuación Lighthouse** | 95+ | Performance, Accessibility, Best Practices |
-
----
-
-## Posibles Mejoras Futuras
-
-1. **Offline Support:**
-   - Service Workers para caché de datos
-   - Sync cuando se recupera conexión
-
-2. **Funcionalidades Sociales:**
-   - Compartir logros en redes sociales
-   - Comparativa con amigos
-
-3. **Visualizaciones Avanzadas:**
-   - Gráficos de progreso temporal
-   - Heatmaps de actividad
-
-4. **Internacionalización:**
-   - Soporte para múltiples idiomas
-   - Localización de formatos
 
 ---
 
