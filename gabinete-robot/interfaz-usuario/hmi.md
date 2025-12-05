@@ -46,4 +46,4 @@ Por ultimo el botón de **Reciclar si cuenta** siemplemente dirige al usuario a 
    }
 
 4. **Código completo de Interfaz**
-   ![Código]({{ "/assets/documentos/codigo.py" | relative_url }})
+   [📁 Ver código completo de la interfaz](https://github.com/sebas30073007/Sistemas_Ciberfisicos_Proyecto/blob/main/assets/documentos/codigo.py)
