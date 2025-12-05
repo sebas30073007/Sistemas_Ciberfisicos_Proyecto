@@ -62,6 +62,8 @@ Devuelve toda la información asociada al usuario, incluyendo la cantidad de lat
   "vidrio": 10,
   "tetra": 15
 }
+```
+{% endraw %}
 
 ---
 
@@ -88,7 +90,8 @@ Lógica:
   "categoria_actualizada": "lata",
   "nuevo_valor": 15
 }
-
+```
+{% endraw %}
 ---
 
 ### 4. Rankings (`top_total`), (`top_latas`), (`top_vidrio`), (`top_tetra`)
@@ -104,21 +107,24 @@ Para los diferentes casos de error hay los siguientes
 {
   "error": "El usuario con ID '999' no existe"
 }
-
+```
+{% endraw %}
 `Categoría inválida`
 {% raw %}
 ```json
 {
   "error": "Categoría inválida. Usa 'lata', 'vidrio' o 'tetra'."
 }
-
+```
+{% endraw %}
 `Usuario ya existe`
 {% raw %}
 ```json
 {
   "error": "El usuario con ID '001' ya existe"
 }
-
+```
+{% endraw %}
 ---
 ### 6. Configuración
 Las variables de entorno a utilizar son:
@@ -136,7 +142,8 @@ FIREBASE_JSON = {
   "auth_provider_x509_cert_url": "...",
   "client_x509_cert_url": "..."
 }
-
+```
+{% endraw %}
 La configuración **CORS** es:
 (% raw %)
 CORS(app, 
@@ -144,7 +151,8 @@ CORS(app,
      methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"], 
      allow_headers="*", 
      supports_credentials=True)
-
+```
+{% endraw %}
 ---
 
 ### 7 Logs
