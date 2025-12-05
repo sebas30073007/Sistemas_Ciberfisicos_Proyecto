@@ -7,6 +7,7 @@ redirect_from:
   - /deteccion-clasificacion/gestion-datos/
 ---
 
+# Base de Datos Firebase Realtime Database
 Se uitlizó la base de datos Firebase Realtime Database ingresando la estructura siguiente
 - `usuarios/`
   - `[ID_USUARIO]/`
@@ -17,9 +18,6 @@ Se uitlizó la base de datos Firebase Realtime Database ingresando la estructura
     - `vidrio`: 0
 
 Cada usuario tiene esta misma estructura. Para acceder a la base de datos se necesita la llave de otra forma, no sería posible. Además se usa la librería firebase_admin y de esta credentials y db.
-
-# Base de Datos Firebase Realtime Database
-
 ## Arquitectura de Datos
 
 El sistema utiliza **Firebase Realtime Database** como solución de almacenamiento en tiempo real, elegida por su capacidad de sincronización inmediata y facilidad de integración con aplicaciones web y móviles.
