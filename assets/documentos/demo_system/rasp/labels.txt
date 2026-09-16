@@ -1,0 +1,4 @@
+0 lata
+1 vidrio
+2 tetra
+3 bg
